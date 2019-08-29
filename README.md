@@ -6,11 +6,11 @@ Integrate your Oracle environment's health state into SCOM relying on Foglight A
 
 
 ### State Views:
-![Solar_State]https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/PicturesForGitWebSite/Foglight_Scom_StateView.png)
+![Foglight_State](https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/PicturesForGitWebSite/Foglight_Scom_StateView.png)
 
 
 ### Diagram Views:
-![Solar_Diagram](https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/PicturesForGitWebSite/Foglight_Scom_DiagramView.png)
+![Foglight_Diagram](https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/PicturesForGitWebSite/Foglight_Scom_DiagramView.png)
 
 
 
