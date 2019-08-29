@@ -4,35 +4,25 @@ Integrate your Oracle environment's health state into SCOM relying on Foglight A
 ### Foglight Application Monitoring:
 ![Foglight_APM](https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/PicturesForGitWebSite/Foglight_Database_Screen.png)
 
-### Inventory View:
-![Solar_Inventory](https://raw.githubusercontent.com/Juanito99/SolarWinds_NPM_OpsMgr/master/PicturesForGitWebSite/SolarOpsMgr_InvView.png)
 
 ### State Views:
-![Solar_State](https://raw.githubusercontent.com/Juanito99/SolarWinds_NPM_OpsMgr/master/PicturesForGitWebSite/SolarOpsMgr_StateView.png)
+![Solar_State]https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/PicturesForGitWebSite/Foglight_Scom_StateView.png)
+
 
 ### Diagram Views:
-![Solar_Diagram](https://raw.githubusercontent.com/Juanito99/SolarWinds_NPM_OpsMgr/master/PicturesForGitWebSite/SolarOpsMgr_DiagramView.png)
+![Solar_Diagram](https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/PicturesForGitWebSite/Foglight_Scom_DiagramView.png)
+
 
 
 ### More information on:
-[Documentation](https://github.com/Juanito99/SolarWinds_NPM_OpsMgr/blob/master/Documentation/Integrate_SolarWinds_NPM_into_OpsMgr.pdf)
+[Documentation](https://raw.githubusercontent.com/Juanito99/Connect.APM.Foglight/master/Documentation/ManagementPack-ConnectAPMFoglight-Introduction.pdf)
 
 
 ### Downloads:
 
-[ManagementPack-Sealed](https://github.com/Juanito99/SolarWinds_NPM_OpsMgr/blob/master/ABC.Network.SolarWinds.NPM/ABC.Network.SolarWinds.NPM/bin/Debug/ABC.Network.SolarWinds.NPM.mpb) 
+[ManagementPack-XML](https://github.com/Juanito99/Connect.APM.Foglight/raw/master/Visual%20Studio%20Solution/obj/Debug/Connect.APM.Foglight.mp) 
 
-[ManagementPack-UnSealed](https://github.com/Juanito99/SolarWinds_NPM_OpsMgr/blob/master/ABC.Network.SolarWinds.NPM/ABC.Network.SolarWinds.NPM/bin/Release/ABC.Network.SolarWinds.NPM.mpb) 
-
-[Source for VSAE 2017](https://github.com/Juanito99/SolarWinds_NPM_OpsMgr/tree/master/ABC.Network.SolarWinds.NPM)
-
-
-
-
-
-### Community Management Pack:
-Keep this and many other management packs automatically up to date by installing the [Community Management Pack](https://squaredup.com/landing-pages/the-scom-community-mp-catalog)
-
+[ManagementPack-MP](https://github.com/Juanito99/Connect.APM.Foglight/blob/master/Visual%20Studio%20Solution/obj/Debug/Connect.APM.Foglight.xml) 
 
 
 
