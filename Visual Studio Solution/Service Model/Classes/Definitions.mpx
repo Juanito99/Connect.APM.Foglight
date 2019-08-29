@@ -1,0 +1,268 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+
+        <ClassType ID="Connect.APM.Foglight.MonitoringServer" Accessibility="Public" Abstract="false" Base="Windows!Microsoft.Windows.ComputerRole" Hosted="true" Singleton="false" Extension="false">
+          <Property ID="APMServerURL" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="APMServerAuthToken" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+          
+        <ClassType ID="Connect.APM.Foglight.DBO.Base" Accessibility="Public" Abstract="true" Base="System!System.LogicalEntity" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="longName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="dbName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+
+        <ClassType ID="Connect.APM.Foglight.DBO.DatabaseSystem" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+
+        <ClassType ID="Connect.APM.Foglight.DBO.Database" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+
+        <ClassType ID="Connect.APM.Foglight.DBO.Server" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="activeHost" Type="string" AutoIncrement="false" Key="false" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+
+        <ClassType ID="Connect.APM.Foglight.DBO.Listener" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+
+        <ClassType ID="Connect.APM.Foglight.DBO.Tablespace" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="tableSpaceName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="status" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="contents" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="blocksize" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="retention" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+
+        <ClassType ID="Connect.APM.Foglight.DBO.Agent" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="agentVersion" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="agentName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="build" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="monitoringHost" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="type" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+
+      </ClassTypes>   
+              
+  
+      <RelationshipTypes>
+        
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsDatabase" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Database" />
+        </RelationshipType>
+
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsServer" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Server" />
+        </RelationshipType>
+
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsListener" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Listener" />
+        </RelationshipType>
+
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsAgent" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Agent" />
+        </RelationshipType>
+
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseHostsTablespace" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Database" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Tablespace" />
+        </RelationshipType>
+
+      </RelationshipTypes>
+      
+    </EntityTypes>
+  </TypeDefinitions>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+
+        <DisplayString ElementID="Connect.APM.Foglight.MonitoringServer">
+          <Name>Connect APM Foglight MonitoringServer</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.MonitoringServer" SubElementID="APMServerAuthToken">
+          <Name>APM ServerAuthToken</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.MonitoringServer" SubElementID="APMServerURL">
+          <Name>APM Server URL</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Base">
+          <Name>Connect APM Foglight Base</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Base" SubElementID="dbName">
+          <Name>dbName</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Base" SubElementID="longName">
+          <Name>longName</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.DatabaseSystem">
+          <Name>Connect APM Foglight DatabaseSystem</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.DatabaseSystem" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Database">
+          <Name>Connect APM Foglight Database</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Database" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Server">
+          <Name>Connect APM Foglight Server</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Server" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Server" SubElementID="activeHost">
+          <Name>Active Host</Name>
+          <Description></Description>
+        </DisplayString>
+
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Listener">
+          <Name>Connect APM Foglight Listener</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Listener" SubElementID="uniqueId">
+          <Name>unqiueId</Name>
+          <Description></Description>
+        </DisplayString>
+
+
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace">
+          <Name>Connect APM Foglight Tablespace</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="blocksize">
+          <Name>blocksize</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="contents">
+          <Name>contents</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="retention">
+          <Name>retention</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="status">
+          <Name>status</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="tableSpaceName">
+          <Name>tableSpaceName</Name>
+          <Description></Description>
+        </DisplayString>
+
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent">
+          <Name>Connect APM Foglight Agent</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="agentVersion">
+          <Name>agentVersion</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="build">
+          <Name>build</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="monitoringHost">
+          <Name>monitoringHost</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="type">
+          <Name>type</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="agentName">
+          <Name>agentName</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsDatabase">
+          <Name>Connect APM Foglight DatabaseSystemHostsDatabase</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsServer">
+          <Name>Connect APM Foglight DatabaseSystemHostsServer</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsListener">
+          <Name>Connect APM Foglight DatabaseSystemHostsListener</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsAgent">
+          <Name>Connect APM Foglight DatabaseSystemHostsAgent</Name>
+          <Description></Description>
+        </DisplayString>
+
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseHostsTablespace">
+          <Name>Connect APM Foglight DatabaseHostsTablespace</Name>
+          <Description></Description>
+        </DisplayString>
+
+      </DisplayStrings>
+    </LanguagePack>
+  </LanguagePacks>
+</ManagementPackFragment>

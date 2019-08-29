@@ -1,0 +1,28 @@
+﻿<ManagementPackFragment SchemaVersion="2.0" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Categories>
+    <Category ID="Connect.APM.Foglight.DBO.DatabaseSystem.Category" Target="Connect.APM.Foglight.DBO.DatabaseSystem.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Database.Category" Target="Connect.APM.Foglight.DBO.Database.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Server.Category" Target="Connect.APM.Foglight.DBO.Server.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Listener.Category" Target="Connect.APM.Foglight.DBO.Listener.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Agent.Category" Target="Connect.APM.Foglight.DBO.Agent.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Tablespace.Category" Target="Connect.APM.Foglight.DBO.Tablespace.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+  </Categories>
+  <Presentation>
+    <ImageReferences>
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.DatabaseSystem" ImageID="Connect.APM.Foglight.DBO.DatabaseSystem.Icon"/>
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Database" ImageID="Connect.APM.Foglight.DBO.Database.Icon"/>
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Server" ImageID="Connect.APM.Foglight.DBO.Server.Icon"/>
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Listener" ImageID="Connect.APM.Foglight.DBO.Listener.Icon"/>
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Agent" ImageID="Connect.APM.Foglight.DBO.Agent.Icon"/>
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Tablespace" ImageID="Connect.APM.Foglight.DBO.Tablespace.Icon"/>
+    </ImageReferences>
+  </Presentation>
+  <Resources>
+    <Image ID="Connect.APM.Foglight.DBO.DatabaseSystem.Icon" FileName="fogDatabaseSystem.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Database System" />
+    <Image ID="Connect.APM.Foglight.DBO.Database.Icon" FileName="fogDatabase.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Database" />
+    <Image ID="Connect.APM.Foglight.DBO.Server.Icon" FileName="fogServer.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Server " />
+    <Image ID="Connect.APM.Foglight.DBO.Listener.Icon" FileName="fogListener.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Listener" />
+    <Image ID="Connect.APM.Foglight.DBO.Agent.Icon" FileName="fogAgent.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Agent" />
+    <Image ID="Connect.APM.Foglight.DBO.Tablespace.Icon" FileName="fogTablespace.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Tablespace" />
+  </Resources>
+</ManagementPackFragment>

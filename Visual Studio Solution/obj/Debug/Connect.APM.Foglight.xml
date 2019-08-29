@@ -1,0 +1,2389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ManagementPack SchemaVersion="2.0" ContentReadable="true" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Manifest>
+    <Identity>
+      <ID>Connect.APM.Foglight</ID>
+      <Version>1.0.0.77</Version>
+    </Identity>
+    <Name>Connect.APM.Foglight</Name>
+    <References>
+      <Reference Alias="SC">
+        <ID>Microsoft.SystemCenter.Library</ID>
+        <Version>7.0.8433.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Windows">
+        <ID>Microsoft.Windows.Library</ID>
+        <Version>7.5.8501.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="Health">
+        <ID>System.Health.Library</ID>
+        <Version>7.0.8433.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+      <Reference Alias="System">
+        <ID>System.Library</ID>
+        <Version>7.5.8501.0</Version>
+        <PublicKeyToken>31bf3856ad364e35</PublicKeyToken>
+      </Reference>
+    </References>
+  </Manifest>
+  <TypeDefinitions>
+    <EntityTypes>
+      <ClassTypes>
+        <ClassType ID="Connect.APM.Foglight.MonitoringServer" Accessibility="Public" Abstract="false" Base="Windows!Microsoft.Windows.ComputerRole" Hosted="true" Singleton="false" Extension="false">
+          <Property ID="APMServerURL" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="APMServerAuthToken" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Connect.APM.Foglight.DBO.Base" Accessibility="Public" Abstract="true" Base="System!System.LogicalEntity" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="longName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="dbName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Connect.APM.Foglight.DBO.DatabaseSystem" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Connect.APM.Foglight.DBO.Database" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Connect.APM.Foglight.DBO.Server" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="activeHost" Type="string" AutoIncrement="false" Key="false" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Connect.APM.Foglight.DBO.Listener" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Connect.APM.Foglight.DBO.Tablespace" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="tableSpaceName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="status" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="contents" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="blocksize" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="retention" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+        <ClassType ID="Connect.APM.Foglight.DBO.Agent" Accessibility="Public" Abstract="false" Base="Connect.APM.Foglight.DBO.Base" Hosted="false" Singleton="false" Extension="false">
+          <Property ID="uniqueId" Type="string" AutoIncrement="false" Key="true" CaseSensitive="true" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="agentVersion" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="agentName" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="build" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="monitoringHost" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+          <Property ID="type" Type="string" AutoIncrement="false" Key="false" CaseSensitive="false" MaxLength="256" MinLength="0" Required="false" Scale="0" />
+        </ClassType>
+      </ClassTypes>
+      <RelationshipTypes>
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsDatabase" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Database" />
+        </RelationshipType>
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsServer" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Server" />
+        </RelationshipType>
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsListener" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Listener" />
+        </RelationshipType>
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseSystemHostsAgent" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Agent" />
+        </RelationshipType>
+        <RelationshipType ID="Connect.APM.Foglight.DatabaseHostsTablespace" Accessibility="Public" Abstract="false" Base="System!System.Containment">
+          <Source ID="Source" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Database" />
+          <Target ID="Target" MinCardinality="0" MaxCardinality="2147483647" Type="Connect.APM.Foglight.DBO.Tablespace" />
+        </RelationshipType>
+      </RelationshipTypes>
+    </EntityTypes>
+    <ModuleTypes>
+      <DataSourceModuleType ID="Connect.APM.Check.Test.PropertyBag.Filtered" Accessibility="Internal" Batching="false">
+        <Configuration>
+          <xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="QryItem" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="uniqueId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+          <OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+        </OverrideableParameters>
+        <ModuleImplementation Isolation="Any">
+          <Composite>
+            <MemberModules>
+              <DataSource ID="DS" TypeID="Connect.APM.Check.Test.PropertyBag">
+                <IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+                <SyncTime>$Config/SyncTime$</SyncTime>
+                <QryItem>$Config/QryItem$</QryItem>
+                <uniqueId>$Config/uniqueId$</uniqueId>
+              </DataSource>
+              <ConditionDetection ID="Filter" TypeID="System!System.ExpressionFilter">
+                <Expression>
+                  <SimpleExpression>
+                    <ValueExpression>
+                      <XPathQuery Type="String">Property[@Name="uniqueId"]</XPathQuery>
+                    </ValueExpression>
+                    <Operator>Equal</Operator>
+                    <ValueExpression>
+                      <Value Type="String">$Config/uniqueId$</Value>
+                    </ValueExpression>
+                  </SimpleExpression>
+                </Expression>
+              </ConditionDetection>
+            </MemberModules>
+            <Composition>
+              <Node ID="Filter">
+                <Node ID="DS" />
+              </Node>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+      </DataSourceModuleType>
+      <DataSourceModuleType ID="Connect.APM.Check.Test.PropertyBag" Accessibility="Internal" Batching="false">
+        <Configuration>
+          <xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="QryItem" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="uniqueId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+          <OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+        </OverrideableParameters>
+        <ModuleImplementation Isolation="Any">
+          <Composite>
+            <MemberModules>
+              <DataSource ID="Schedule" TypeID="System!System.SimpleScheduler">
+                <IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+                <SyncTime>$Config/SyncTime$</SyncTime>
+              </DataSource>
+              <ProbeAction ID="Probe" TypeID="Connect.APM.Check.Probe">
+                <QryItem>$Config/QryItem$</QryItem>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="Probe">
+                <Node ID="Schedule" />
+              </Node>
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+      </DataSourceModuleType>
+      <ProbeActionModuleType ID="Connect.APM.Check.Probe" Accessibility="Internal" Batching="false" PassThrough="false">
+        <Configuration>
+          <xsd:element name="QryItem" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </Configuration>
+        <ModuleImplementation Isolation="Any">
+          <Composite>
+            <MemberModules>
+              <ProbeAction ID="PSScript" TypeID="Windows!Microsoft.Windows.PowerShellPropertyBagProbe">
+                <ScriptName>MonitorDBOStates.ps1</ScriptName>
+                <ScriptBody><![CDATA[param($QryItem)
+
+$api = New-Object -ComObject 'MOM.ScriptAPI'
+
+$Global:Error.Clear()
+$script:ErrorView      = 'NormalView'
+$ErrorActionPreference = 'Continue'
+
+$testedAt = "Tested on: $(Get-Date -Format u) / $(([TimeZoneInfo]::Local).DisplayName)"
+
+#region PREWORK Disabling the certificate validations
+if ("TrustAllCertsPolicy" -as [type]) {
+	$foo = 'already exist'
+} else {
+add-type -TypeDefinition @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+[Net.ServicePointManager]::CertificatePolicy = New-Object -TypeName TrustAllCertsPolicy
+}
+#endregion PREWORK
+
+$apmRegPath               = 'HKLM:\SOFTWARE\ABCIT\APMFoglight'
+$apmServerAuthToken       = Get-ItemProperty -Path $apmRegPath | Select-Object -ExpandProperty APMServerAuthToken
+$apmServerURL             = Get-ItemProperty -Path $apmRegPath | Select-Object -ExpandProperty APMServerURL
+
+$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',130,4,"MonitorDBOStats.ps1 - Starting with APM Server query $($apmServerURL)")
+
+Function Get-DBOFromFoglightWebService {
+
+	param(
+		[ref]$outList,
+		[string]$qryItem,
+		[string]$apmServerURL,
+		[string]$apmServerAuthToken
+	)
+
+	$rtn = $false	
+		
+	$url     = $apmServerURL + '/api/v1/topology/query?showTopologyTypeLocalProperties=true'
+	$headers = @{    
+		'Auth-Token' = $apmServerAuthToken
+		'Accept'     = 'application/json'
+	}
+
+	$tmpList = New-Object -TypeName System.Collections.ArrayList
+
+	$generalProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'	
+		'aggregateAlarms'
+	)
+
+	$serverProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'	
+		'aggregateAlarms'
+		'active_Host'
+	)
+
+	$tableSpaceProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'
+		'tablespace_name'	
+		'status'
+		'contents'
+		'retention'
+		'block_size'
+		'aggregateAlarms'
+	)
+
+	$agentModelProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'
+		'agentVersion'
+		'hostName'
+		'agentName'
+		'build'		
+		'type'
+		'aggregateAlarms'
+	)
+
+	switch ($qryItem) {
+		"Servers"  {			
+			
+			$body = @{ "queryText" = "!DBO_Servers"	} | ConvertTo-Json
+			$dboServersRaw = ''
+			$dboServersRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboServersRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',131,4,"Query $($qryItem), returned $($dboServersRaw.data.count) objects.")
+				$dboServersRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $serverProps
+					if ($tmp) {		
+						if ($tmp.active_host.name) {
+							$ativeHost = $tmp.active_host.name
+						} else {
+							$activeHost = 'Not defined'
+						}						
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{							
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  'aggregateAlarms'          = $tmp.aggregateAlarms.message
+							  'activeHost'               = $activeHost
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				}
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,1,"Query $($qryItem), returned $($dboServersRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Servers   
+		"Database"  {			
+			
+			$body = @{ "queryText" = "!DBO_Database" } | ConvertTo-Json
+			$dboDatabaseRaw = ''
+			$dboDatabaseRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboDatabaseRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,4,"Query $($qryItem), returned $($dboDatabaseRaw.data.count) objects.")
+				$dboDatabaseRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  'aggregateAlarms'          = $tmp.aggregateAlarms.message
+						}
+						if ($dbName -ne '' -and $dbname -match '[a-zA-Z]{1,}') {
+							$null = $tmpList.Add($dboObj)
+						}												
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,1,"Query $($qryItem), returned $($dboDatabaseRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Database
+		"Listener"  {			
+			
+			$body = @{ "queryText" = "!DBO_Listener_Status" } | ConvertTo-Json
+			$dboListenerStatusRaw = ''
+			$dboListenerStatusRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboListenerStatusRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,4,"Query $($qryItem), returned $($dboListenerStatusRaw.data.count) objects.")
+				$dboListenerStatusRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							'aggregateAlarms'          = $tmp.aggregateAlarms.message
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,1,"Query $($qryItem), returned $($dboListenerStatusRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Listener
+		"DB-System"  {			
+			
+			$body = @{ "queryText" = "!DBO_Database" } | ConvertTo-Json
+			$dboSystemRaw = ''
+			$dboSystemRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+			
+			if ($dboSystemRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,4,"Query $($qryItem), returned $($dboSystemRaw.data.count) objects.")
+				$dboSystemRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value				
+						$uniID  =  $tmp.uniqueId -replace '-',''							  
+						if ($uniID -notMatch '-Sys') {
+							$uniID  = $uniID + '-Sys'
+						}
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $uniID  = $uniID + '-Sys'
+							  [string]'longName'         = $tmp.longName + '_Long'
+							  [string]'dbName'           = $dbName							  
+						}
+						if ($dbName -ne '' -and $dbname -match '[a-zA-Z]{1,}') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,1,"Query $($qryItem), returned $($dboSystemRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end DB-System
+		"Tablespace"  {			
+			
+			$body = @{ "queryText" = "!DBO_Tablespace" } | ConvertTo-Json
+			$dboTableSpaceRaw = ''
+			$dboTableSpaceRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboTableSpaceRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,4,"Query $($qryItem), returned $($dboTableSpaceRaw.data.count) objects.")
+				$dboTableSpaceRaw.data | ForEach-Object {					
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $tableSpaceProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  [string]'tableSpaceName'   = $tmp.tablespace_Name
+							  [string]'status'           = $tmp.status
+							  [string]'contents'         = $tmp.contents
+							  [string]'retention'        = $tmp.retention
+							  'blocksize'                = $tmp.block_size			  
+							'aggregateAlarms'          = $tmp.aggregateAlarms.message
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				}
+
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,1,"Query $($qryItem), returned $($dboTableSpaceRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Tablespace
+		"Agent"  {			
+			
+			$body = @{ "queryText" = "!DBO_Agent_Model" } | ConvertTo-Json
+			$dboAgentModelRaw = ''
+			$dboAgentModelRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboAgentModelRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,4,"Query $($qryItem), returned $($dboAgentModelRaw.data.count) objects.")
+				$dboAgentModelRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $agentModelProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  [string]'agentVersion'     = $tmp.agentVersion
+							  [string]'agentName'        = $tmp.agentName
+							  [string]'build'            = $tmp.build
+							  [string]'monitoringHost'   = $tmp.hostName
+							  [string]'type'             = $tmp.type 
+							'aggregateAlarms'          = $tmp.aggregateAlarms.message
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',131,1,"Query $($qryItem), returned $($dboAgentModelRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Agent
+
+	} #end switch ($qryItem)
+	
+	$outList.Value = $tmpList
+	
+	if ($tmpList.Count -gt 1) {
+		$rtn = $true
+	} else {
+		$rtn = $false
+	}
+
+	$rtn
+
+} #end Function Get-DBOFromFoglightWebService 
+
+
+$apmServerName = $apmServerURL  -replace ':[\d]{1,}',''
+$apmServerName = $apmServerName -replace '(?i)https?://',''
+
+if (Test-Connection -ComputerName $apmServerName -Count 2 -Quiet) {
+
+	$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',132,4,"MonitorDBOStats.ps1 - APM Server $($apmServerName) is reachable via PING.")
+	$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',133,2,"MonitorDBOStats.ps1 - QueryItem ($qryItem) ")
+
+	$dboList = New-Object -TypeName System.Collections.ArrayList
+	Get-DBOFromFoglightWebService -qryItem $qryItem -apmServerURL $apmServerURL -apmServerAuthToken $apmServerAuthToken -outList ([ref]$dboList)
+
+	$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',134,1,"MonitorDBOStats.ps1 - dboList $($dboList.Count) ")
+
+	foreach ($dboItem in $dboList) {
+		$state = 'Green'
+		switch ($dboItem.aggregateState) {
+			'0' { 
+				$state = 'Green'
+				break
+			}
+			'1' { 
+				$state = 'Yellow'
+				break
+			}
+			'2' { 
+				$state = 'Yellow'
+				break
+			}
+			'3' { 
+				$state = 'Red'
+				break
+			}
+			'4' { 
+				$state = 'Red'
+				break
+			}
+		}
+
+		$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',135,2,"Sending LongName $($dboItem.longName); UniqueId $($dboItem.uniqueId); State $($state); testedAt $($testedAt); alarmtext $($dboItem.aggregateAlarms)   ")
+
+		$bag = $api.CreatePropertybag()					
+		$bag.AddValue("Name",$dboItem.longName)
+		$bag.AddValue("uniqueId",$dboItem.uniqueId)		
+		$bag.AddValue("State",$state)				
+		$bag.AddValue("AlarmText",$dboItem.aggregateAlarms)		
+		$bag.AddValue("TestedAt",$testedAt)			
+		$bag
+
+	}	
+	
+} else {
+
+	$api.LogScriptEvent('Connect.APM.Foglight - MonitorDBOStats.ps1',132,1,"MonitorDBOStats.ps1 - APM Server $($apmServerName) is NOT reachable with PING. Stopping further processing!")
+
+}
+]]></ScriptBody>
+                <Parameters>
+                  <Parameter>
+                    <Name>QryItem</Name>
+                    <Value>$Config/QryItem$</Value>
+                  </Parameter>
+                </Parameters>
+                <TimeoutSeconds>300</TimeoutSeconds>
+              </ProbeAction>
+            </MemberModules>
+            <Composition>
+              <Node ID="PSScript" />
+            </Composition>
+          </Composite>
+        </ModuleImplementation>
+        <OutputType>System!System.PropertyBagData</OutputType>
+        <InputType>System!System.BaseData</InputType>
+      </ProbeActionModuleType>
+    </ModuleTypes>
+    <MonitorTypes>
+      <UnitMonitorType ID="Connect.APM.Check.Test.MonitorType" Accessibility="Internal">
+        <MonitorTypeStates>
+          <MonitorTypeState ID="UnderThreshold" NoDetection="false" />
+          <MonitorTypeState ID="OverWarningThreshold" NoDetection="false" />
+          <MonitorTypeState ID="OverErrorThreshold" NoDetection="false" />
+        </MonitorTypeStates>
+        <Configuration>
+          <xsd:element name="IntervalSeconds" type="xsd:integer" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="SyncTime" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="QryItem" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+          <xsd:element name="uniqueId" type="xsd:string" xmlns:xsd="http://www.w3.org/2001/XMLSchema" />
+        </Configuration>
+        <OverrideableParameters>
+          <OverrideableParameter ID="IntervalSeconds" Selector="$Config/IntervalSeconds$" ParameterType="int" />
+          <OverrideableParameter ID="SyncTime" Selector="$Config/SyncTime$" ParameterType="string" />
+        </OverrideableParameters>
+        <MonitorImplementation>
+          <MemberModules>
+            <DataSource ID="DataSource" TypeID="Connect.APM.Check.Test.PropertyBag.Filtered">
+              <IntervalSeconds>$Config/IntervalSeconds$</IntervalSeconds>
+              <SyncTime>$Config/SyncTime$</SyncTime>
+              <QryItem>$Config/QryItem$</QryItem>
+              <uniqueId>$Config/uniqueId$</uniqueId>
+            </DataSource>
+            <ProbeAction ID="PassThru" TypeID="System!System.PassThroughProbe" />
+            <ProbeAction ID="Probe" TypeID="Connect.APM.Check.Probe">
+              <QryItem>$Config/QryItem$</QryItem>
+            </ProbeAction>
+            <ConditionDetection ID="FilterUnderThreshold" TypeID="System!System.ExpressionFilter">
+              <Expression>
+                <SimpleExpression>
+                  <ValueExpression>
+                    <XPathQuery Type="String">Property[@Name='State']</XPathQuery>
+                  </ValueExpression>
+                  <Operator>Equal</Operator>
+                  <ValueExpression>
+                    <Value Type="String">Green</Value>
+                  </ValueExpression>
+                </SimpleExpression>
+              </Expression>
+            </ConditionDetection>
+            <ConditionDetection ID="FilterOverWarningThreshold" TypeID="System!System.ExpressionFilter">
+              <Expression>
+                <SimpleExpression>
+                  <ValueExpression>
+                    <XPathQuery Type="String">Property[@Name='State']</XPathQuery>
+                  </ValueExpression>
+                  <Operator>Equal</Operator>
+                  <ValueExpression>
+                    <Value Type="String">Yellow</Value>
+                  </ValueExpression>
+                </SimpleExpression>
+              </Expression>
+            </ConditionDetection>
+            <ConditionDetection ID="FilterOverErrorThreshold" TypeID="System!System.ExpressionFilter">
+              <Expression>
+                <SimpleExpression>
+                  <ValueExpression>
+                    <XPathQuery Type="String">Property[@Name='State']</XPathQuery>
+                  </ValueExpression>
+                  <Operator>Equal</Operator>
+                  <ValueExpression>
+                    <Value Type="String">Red</Value>
+                  </ValueExpression>
+                </SimpleExpression>
+              </Expression>
+            </ConditionDetection>
+          </MemberModules>
+          <RegularDetections>
+            <RegularDetection MonitorTypeStateID="UnderThreshold">
+              <Node ID="FilterUnderThreshold">
+                <Node ID="DataSource" />
+              </Node>
+            </RegularDetection>
+            <RegularDetection MonitorTypeStateID="OverWarningThreshold">
+              <Node ID="FilterOverWarningThreshold">
+                <Node ID="DataSource" />
+              </Node>
+            </RegularDetection>
+            <RegularDetection MonitorTypeStateID="OverErrorThreshold">
+              <Node ID="FilterOverErrorThreshold">
+                <Node ID="DataSource" />
+              </Node>
+            </RegularDetection>
+          </RegularDetections>
+        </MonitorImplementation>
+      </UnitMonitorType>
+    </MonitorTypes>
+  </TypeDefinitions>
+  <Categories>
+    <Category ID="Connect.APM.Foglight.DBO.DatabaseSystem.Category" Target="Connect.APM.Foglight.DBO.DatabaseSystem.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Database.Category" Target="Connect.APM.Foglight.DBO.Database.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Server.Category" Target="Connect.APM.Foglight.DBO.Server.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Listener.Category" Target="Connect.APM.Foglight.DBO.Listener.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Agent.Category" Target="Connect.APM.Foglight.DBO.Agent.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+    <Category ID="Connect.APM.Foglight.DBO.Tablespace.Category" Target="Connect.APM.Foglight.DBO.Tablespace.Icon" Value="System!System.Internal.ManagementPack.Images.DiagramIcon" />
+  </Categories>
+  <Monitoring>
+    <Discoveries>
+      <Discovery ID="Connect.APM.Foglight.Discover.Connect.APM.MonitoringServer" Target="Windows!Microsoft.Windows.Computer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryClass TypeID="Connect.APM.Foglight.MonitoringServer" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="Windows!Microsoft.Windows.FilteredRegistryDiscoveryProvider">
+          <ComputerName>$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$</ComputerName>
+          <RegistryAttributeDefinitions>
+            <RegistryAttributeDefinition>
+              <AttributeName>KeyExists</AttributeName>
+              <Path>SOFTWARE\ABCIT\APMFoglight</Path>
+              <PathType>0</PathType>
+              <AttributeType>0</AttributeType>
+            </RegistryAttributeDefinition>
+            <RegistryAttributeDefinition>
+              <AttributeName>APMServerURL</AttributeName>
+              <Path>SOFTWARE\ABCIT\APMFoglight\APMServerURL</Path>
+              <PathType>1</PathType>
+              <AttributeType>1</AttributeType>
+            </RegistryAttributeDefinition>
+            <RegistryAttributeDefinition>
+              <AttributeName>APMServerAuthToken</AttributeName>
+              <Path>SOFTWARE\ABCIT\APMFoglight\APMServerAuthToken</Path>
+              <PathType>1</PathType>
+              <AttributeType>1</AttributeType>
+            </RegistryAttributeDefinition>
+          </RegistryAttributeDefinitions>
+          <Frequency>84600</Frequency>
+          <ClassId>$MPElement[Name="Connect.APM.Foglight.MonitoringServer"]$</ClassId>
+          <InstanceSettings>
+            <Settings>
+              <Setting>
+                <Name>$MPElement[Name="Windows!Microsoft.Windows.Computer"]/PrincipalName$</Name>
+                <Value>$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$</Value>
+              </Setting>
+              <Setting>
+                <Name>$MPElement[Name="System!System.Entity"]/DisplayName$</Name>
+                <Value>$Target/Property[Type="Windows!Microsoft.Windows.Computer"]/PrincipalName$</Value>
+              </Setting>
+              <Setting>
+                <Name>$MPElement[Name="Connect.APM.Foglight.MonitoringServer"]/APMServerURL$</Name>
+                <Value>$Data/Values/APMServerURL$</Value>
+              </Setting>
+              <Setting>
+                <Name>$MPElement[Name="Connect.APM.Foglight.MonitoringServer"]/APMServerAuthToken$</Name>
+                <Value>$Data/Values/APMServerAuthToken$</Value>
+              </Setting>
+            </Settings>
+          </InstanceSettings>
+          <Expression>
+            <SimpleExpression>
+              <ValueExpression>
+                <XPathQuery>Values/KeyExists</XPathQuery>
+              </ValueExpression>
+              <Operator>Equal</Operator>
+              <ValueExpression>
+                <Value>true</Value>
+              </ValueExpression>
+            </SimpleExpression>
+          </Expression>
+        </DataSource>
+      </Discovery>
+      <Discovery ID="Connect.APM.Foglight.Discover.Connect.APM.DBObjectRelations" Target="SC!Microsoft.SystemCenter.RootManagementServer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryRelationship TypeID="Connect.APM.Foglight.DatabaseSystemHostsDatabase" />
+          <DiscoveryRelationship TypeID="SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity" />
+          <DiscoveryRelationship TypeID="Connect.APM.Foglight.DatabaseSystemHostsServer" />
+          <DiscoveryRelationship TypeID="Connect.APM.Foglight.DatabaseSystemHostsListener" />
+          <DiscoveryRelationship TypeID="Connect.APM.Foglight.DatabaseSystemHostsAgent" />
+          <DiscoveryRelationship TypeID="Connect.APM.Foglight.DatabaseHostsTablespace" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="Windows!Microsoft.Windows.TimedPowerShell.DiscoveryProvider">
+          <IntervalSeconds>3600</IntervalSeconds>
+          <SyncTime />
+          <ScriptName>DiscoverDBORelations.ps1</ScriptName>
+          <ScriptBody><![CDATA[param($sourceId,$managedEntityId)
+
+$api = New-Object -ComObject 'MOM.ScriptAPI'
+$discoveryData = $api.CreateDiscoveryData(0, $sourceId, $managedEntityId)
+
+#region PREWORK Disabling the certificate validations
+if ("TrustAllCertsPolicy" -as [type]) {
+	$foo = 'already exist'
+} else {
+add-type -TypeDefinition @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+[Net.ServicePointManager]::CertificatePolicy = New-Object -TypeName TrustAllCertsPolicy
+}
+#endregion PREWORK
+
+
+$classFoglightMonitoringServer          = Get-SCOMClass -Name 'Connect.APM.Foglight.MonitoringServer'
+$classFoglightMonitoringServerInstances = Get-SCOMClassInstance -Class $classFoglightMonitoringServer
+$foglightMonitoringServer               = $classFoglightMonitoringServerInstances.'[Microsoft.Windows.Computer].PrincipalName'.Value
+
+$apmServerAuthToken                     = $classFoglightMonitoringServerInstances.'[Connect.APM.Foglight.MonitoringServer].APMServerAuthToken'.Value
+$apmServerURL                           = $classFoglightMonitoringServerInstances.'[Connect.APM.Foglight.MonitoringServer].APMServerURL'.Value
+
+$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',110,4,"DiscoverDBORelations.ps1 - Starting with APM Server query $($apmServerURL)")
+
+
+Function Get-DBOFromFoglightWebService {
+
+	param(
+		[ref]$outList,
+		[string]$qryItem,
+		[string]$apmServerURL,
+		[string]$apmServerAuthToken
+	)
+
+	$rtn = $false	
+		
+	$url     = $apmServerURL + '/api/v1/topology/query?showTopologyTypeLocalProperties=true'
+	$headers = @{    
+		'Auth-Token' = $apmServerAuthToken
+		'Accept'     = 'application/json'
+	}
+
+	$tmpList = New-Object -TypeName System.Collections.ArrayList
+
+	$generalProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'	
+	)
+
+	$serverProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'	
+		'aggregateAlarms'
+		'active_Host'
+	)
+
+	$tableSpaceProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'
+		'tablespace_name'	
+		'status'
+		'contents'
+		'retention'
+		'block_size'
+	)
+
+	$agentModelProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'
+		'agentVersion'
+		'hostName'
+		'agentName'
+		'build'		
+		'type'
+	)
+
+	switch ($qryItem) {
+		"Servers"  {			
+			
+			$body = @{ "queryText" = "!DBO_Servers"	} | ConvertTo-Json
+			$dboServersRaw = ''
+			$dboServersRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboServersRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,4,"Query $($qryItem), returned $($dboServersRaw.data.count) objects.")
+				$dboServersRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $serverProps
+					if ($tmp) {		
+						if ($tmp.active_host.name) {
+							$ativeHost = $tmp.active_host.name
+						} else {
+							$activeHost = 'Not defined'
+						}
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{							
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  'activeHost'               = $activeHost
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				}
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,1,"Query $($qryItem), returned $($dboServersRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Servers   
+		"Database"  {			
+			
+			$body = @{ "queryText" = "!DBO_Database" } | ConvertTo-Json
+			$dboDatabaseRaw = ''
+			$dboDatabaseRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboDatabaseRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',101,4,"Query $($qryItem), returned $($dboDatabaseRaw.data.count) objects.")
+				$dboDatabaseRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+						}
+						if ($dbName -ne '' -and $dbname -match '[a-zA-Z]{1,}') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,1,"Query $($qryItem), returned $($dboDatabaseRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Database
+		"Listener"  {			
+			
+			$body = @{ "queryText" = "!DBO_Listener_Status" } | ConvertTo-Json
+			$dboListenerStatusRaw = ''
+			$dboListenerStatusRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboListenerStatusRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,4,"Query $($qryItem), returned $($dboListenerStatusRaw.data.count) objects.")
+				$dboListenerStatusRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,1,"Query $($qryItem), returned $($dboListenerStatusRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Listener
+		"DB-System"  {			
+			
+			$body = @{ "queryText" = "!DBO_Database" } | ConvertTo-Json
+			$dboSystemRaw = ''
+			$dboSystemRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+			
+			if ($dboSystemRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,4,"Query $($qryItem), returned $($dboSystemRaw.data.count) objects.")
+				$dboSystemRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$uniID  =  $tmp.uniqueId -replace '-',''
+						if ($uniID -notMatch '-Sys') {
+							$uniID  = $uniID + '-Sys'
+						}						
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $uniID
+							  [string]'longName'         = $tmp.longName + '_Long'
+							  [string]'dbName'           = $dbName							  
+						}
+						if ($dbName -ne '' -and $dbname -match '[a-zA-Z]{1,}') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,1,"Query $($qryItem), returned $($dboSystemRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end DB-System
+		"Tablespace"  {			
+			
+			$body = @{ "queryText" = "!DBO_Tablespace" } | ConvertTo-Json
+			$dboTableSpaceRaw = ''
+			$dboTableSpaceRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboTableSpaceRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,4,"Query $($qryItem), returned $($dboTableSpaceRaw.data.count) objects.")
+				$dboTableSpaceRaw.data | ForEach-Object {					
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $tableSpaceProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  [string]'tableSpaceName'   = $tmp.tablespace_Name
+							  [string]'status'           = $tmp.status
+							  [string]'contents'         = $tmp.contents
+							  [string]'retention'        = $tmp.retention
+							  'blocksize'                = $tmp.block_size			  
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				}
+
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,1,"Query $($qryItem), returned $($dboTableSpaceRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Tablespace
+		"Agent"  {			
+			
+			$body = @{ "queryText" = "!DBO_Agent_Model" } | ConvertTo-Json
+			$dboAgentModelRaw = ''
+			$dboAgentModelRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboAgentModelRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,4,"Query $($qryItem), returned $($dboAgentModelRaw.data.count) objects.")
+				$dboAgentModelRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $agentModelProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  [string]'agentVersion'     = $tmp.agentVersion
+							  [string]'agentName'        = $tmp.agentName
+							  [string]'build'            = $tmp.build
+							  [string]'monitoringHost'   = $tmp.hostName
+							  [string]'type'             = $tmp.type 
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,1,"Query $($qryItem), returned $($dboAgentModelRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Agent
+
+	} #end switch ($qryItem)
+	
+	$outList.Value = $tmpList
+	
+	if ($tmpList.Count -gt 1) {
+		$rtn = $true
+	} else {
+		$rtn = $false
+	}
+
+	$rtn
+
+} #end Function Get-DBOFromFoglightWebService 
+
+
+$apmServerName = $apmServerURL  -replace ':[\d]{1,}',''
+$apmServerName = $apmServerName -replace '(?i)https?://',''
+
+if (Test-Connection -ComputerName $apmServerName -Count 2 -Quiet) {
+
+	$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,4,"DiscoverDBORelations.ps1 - APM Server $($apmServerURL) is reachable via PING.")
+		
+	$dboServers = New-Object -TypeName System.Collections.ArrayList
+	Get-DBOFromFoglightWebService -qryItem 'Servers' -apmServerURL 	$apmServerURL -apmServerAuthToken $apmServerAuthToken  -outList ([ref]$dboServers)
+
+	$dboDatabase = New-Object -TypeName System.Collections.ArrayList
+	Get-DBOFromFoglightWebService -qryItem 'Database' -apmServerURL $apmServerURL -apmServerAuthToken $apmServerAuthToken  -outList ([ref]$dboDatabase)
+
+	$dboDBSystem = New-Object -TypeName System.Collections.ArrayList
+	Get-DBOFromFoglightWebService -qryItem 'DB-System' -apmServerURL $apmServerURL -apmServerAuthToken $apmServerAuthToken  -outList ([ref]$dboDBSystem)
+
+	$dboTableSpace = New-Object -TypeName System.Collections.ArrayList
+	Get-DBOFromFoglightWebService -qryItem 'Tablespace' -apmServerURL $apmServerURL -apmServerAuthToken $apmServerAuthToken  -outList ([ref]$dboTableSpace)
+
+	$dboAgent = New-Object -TypeName System.Collections.ArrayList
+	Get-DBOFromFoglightWebService -qryItem 'Agent' -apmServerURL $apmServerURL -apmServerAuthToken $apmServerAuthToken  -outList ([ref]$dboAgent)
+
+	$dboListener = New-Object -TypeName System.Collections.ArrayList
+	Get-DBOFromFoglightWebService -qryItem 'Listener' -apmServerURL $apmServerURL -apmServerAuthToken $apmServerAuthToken  -outList ([ref]$dboListener)
+	
+	$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',115,2,"DiscoverDBORelations.ps1 - APM DBOSystem.Count $($dboDBSystem.count) ")
+	
+	foreach ($dbSysItem in $dboDBSystem) {
+
+		$dbName = $dbSysItem.dbName
+
+		$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',116,2,"DiscoverDBORelations.ps1 - LOOP dbName $($dbName) --> dbSysItem $($dbSysItem) ")
+
+		$displayName = "DB-System-$($dbName)-(Foglight)"
+		
+		$srcInstance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.DatabaseSystem']$")
+		$srcInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$", $dbName)
+		$srcInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.DatabaseSystem']/uniqueId$", $dbSysItem.uniqueId)
+		$srcInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$", $dbSysItem.longName)
+		$srcInstance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+		$discoveryData.AddInstance($srcInstance)
+
+		$healthInstance = $discoveryData.CreateClassInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthService']$")		
+		$healthInstance.AddProperty("$MPElement[Name='Windows!Microsoft.Windows.Computer']/PrincipalName$", $foglightMonitoringServer)			
+		$discoveryData.AddInstance($healthInstance)		
+				
+		$dbInstances = ''
+		$dbInstances = $dboDatabase | Where-Object {$_.dbName -eq $dbName}
+		
+		foreach ($itemDB in $dbInstances) {
+			$displayName = "Database-$($dbName)-(Foglight)"
+			$targetInstance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Database']$")
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$", $dbName)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Database']/uniqueId$", $itemDB.uniqueId)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$", $itemDB.longName)		
+			$targetInstance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($targetInstance)
+	
+			$relInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='Connect.APM.Foglight.DatabaseSystemHostsDatabase']$")
+			$relInstance.Source = $srcInstance
+			$relInstance.Target = $targetInstance
+			$discoveryData.AddInstance($relInstance)
+
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $targetInstance									
+			$discoveryData.AddInstance($relHealthInstance)
+		} #end foreach ($dbi in $dbInstances)
+
+		$serverInstances = ''
+		$serverInstances = $dboServers | Where-Object {$_.dbName -eq $dbName}
+
+		foreach ($itmServer in $serverInstances) {
+			$displayName = "Servers-$($dbName)-(Foglight)"
+			$targetInstance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Server']$")
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$", $dbName)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Server']/uniqueId$", $itmServer.uniqueId)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Server']/activeHost$", $itmServer.activeHost)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$", $itmServer.longName)		
+			$targetInstance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($targetInstance)
+	
+			$relInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='Connect.APM.Foglight.DatabaseSystemHostsServer']$")
+			$relInstance.Source = $srcInstance
+			$relInstance.Target = $targetInstance
+			$discoveryData.AddInstance($relInstance)
+
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $targetInstance									
+			$discoveryData.AddInstance($relHealthInstance)
+		}  #end foreach ($dboServer in serverInstances)
+
+		$listenerInstances = ''
+		$listenerInstances = $dboListener | Where-Object {$_.dbName -eq $dbName}
+
+		foreach ($itmListener in $listenerInstances) {
+			$displayName = "Listener-$($dbName)-(Foglight)"
+			$targetInstance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Listener']$")
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$", $dbName)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Listener']/uniqueId$", $itmListener.uniqueId)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$", $itmListener.longName)		
+			$targetInstance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($targetInstance)
+	
+			$relInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='Connect.APM.Foglight.DatabaseSystemHostsListener']$")
+			$relInstance.Source = $srcInstance
+			$relInstance.Target = $targetInstance
+			$discoveryData.AddInstance($relInstance)
+
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $targetInstance									
+			$discoveryData.AddInstance($relHealthInstance)
+		}  #end foreach ($itmListener in $listenerInstances)
+
+		
+		$agentInstances = ''
+		$agentInstances = $dboAgent | Where-Object {$_.dbName -eq $dbName}
+
+		foreach ($itmAgent in $agentInstances) {
+			$displayName = "Agent-$($dbName)-(Foglight)"
+			$targetInstance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']$")
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$", $dbName)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/uniqueId$", $itmAgent.uniqueId)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$", $itmAgent.longName)					
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/agentVersion$", $itmAgent.agentVersion)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/agentName$", $itmAgent.agentName)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/build$", $itmAgent.build)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/monitoringHost$", $itmAgent.monitoringHost)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/type$", $itmAgent.type)
+			$targetInstance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($targetInstance)
+	
+			$relInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='Connect.APM.Foglight.DatabaseSystemHostsAgent']$")
+			$relInstance.Source = $srcInstance
+			$relInstance.Target = $targetInstance
+			$discoveryData.AddInstance($relInstance)
+
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $targetInstance									
+			$discoveryData.AddInstance($relHealthInstance)
+		}  #end foreach ($itmAgemt in $agentInstances)
+		
+	} #end foreach ($dboItm in $dboList)
+
+	foreach ($dboDBItem in $dboDatabase) {
+
+		$dbName = $dboDBItem.dbName
+
+		$displayName = "Database-$($dbName)-(Foglight)"
+		$srcInstance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Database']$")
+		$srcInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$", $dbName)
+		$srcInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Database']/uniqueId$", $dboDBItem.uniqueId)
+		$srcInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$", $dboDBItem.longName)	
+		$targetInstance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+		$discoveryData.AddInstance($srcInstance)
+
+		$tableSpaceInstances = $dboTableSpace | Where-Object {$_.dbName -imatch $dbName}
+
+		foreach($tablespace in $tableSpaceInstances) {
+			$targetInstance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']$")
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$", $dbName)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/uniqueId$", $tablespace.uniqueId)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$", $tablespace.longName)		
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/tableSpaceName$", $tablespace.tableSpaceName)		
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/status$", $tablespace.status)		
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/contents$", $tablespace.contents)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/retention$", $tablespace.retention)
+			$targetInstance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/blocksize$", $tablespace.blocksize)		
+			$discoveryData.AddInstance($targetInstance)
+	
+			$relInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='Connect.APM.Foglight.DatabaseHostsTablespace']$")
+			$relInstance.Source = $srcInstance
+			$relInstance.Target = $targetInstance
+			$discoveryData.AddInstance($relInstance)
+
+			$relHealthInstance        = $discoveryData.CreateRelationShipInstance("$MPElement[Name='SC!Microsoft.SystemCenter.HealthServiceShouldManageEntity']$")
+			$relHealthInstance.Source = $healthInstance
+			$relHealthInstance.Target = $targetInstance									
+			$discoveryData.AddInstance($relHealthInstance)
+
+		} #end foreach($tablespace in $tableSpaceInstances)				
+
+	} #end foreach  ($dboDBItem in $dboDatabase) 
+		
+} else {
+
+	$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBORelations.ps1',111,1,"DiscoverDBORelations.ps1 - APM Server $($apmServerURL) is NOT reachable with PING. Stopping further processing!")
+	Exit
+
+}
+
+$discoveryData]]></ScriptBody>
+          <Parameters>
+            <Parameter>
+              <Name>sourceId</Name>
+              <Value>$MPElement$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>managedEntityId</Name>
+              <Value>$Target/Id$</Value>
+            </Parameter>
+          </Parameters>
+          <TimeoutSeconds>120</TimeoutSeconds>
+        </DataSource>
+      </Discovery>
+      <Discovery ID="Connect.APM.Foglight.Discover.Connect.APM.DBObjects" Target="Connect.APM.Foglight.MonitoringServer" Enabled="true" ConfirmDelivery="false" Remotable="true" Priority="Normal">
+        <Category>Discovery</Category>
+        <DiscoveryTypes>
+          <DiscoveryClass TypeID="Connect.APM.Foglight.DBO.Agent" />
+          <DiscoveryClass TypeID="Connect.APM.Foglight.DBO.Database" />
+          <DiscoveryClass TypeID="Connect.APM.Foglight.DBO.DatabaseSystem" />
+          <DiscoveryClass TypeID="Connect.APM.Foglight.DBO.Listener" />
+          <DiscoveryClass TypeID="Connect.APM.Foglight.DBO.Server" />
+          <DiscoveryClass TypeID="Connect.APM.Foglight.DBO.Tablespace" />
+        </DiscoveryTypes>
+        <DataSource ID="DS" TypeID="Windows!Microsoft.Windows.TimedPowerShell.DiscoveryProvider">
+          <IntervalSeconds>600</IntervalSeconds>
+          <SyncTime />
+          <ScriptName>DiscoverDBOs.ps1</ScriptName>
+          <ScriptBody><![CDATA[param($sourceId,$managedEntityId)
+
+$api = New-Object -ComObject 'MOM.ScriptAPI'
+$discoveryData = $api.CreateDiscoveryData(0, $sourceId, $managedEntityId)
+
+#region PREWORK Disabling the certificate validations
+if ("TrustAllCertsPolicy" -as [type]) {
+	$foo = 'already exist'
+} else {
+add-type -TypeDefinition @"
+    using System.Net;
+    using System.Security.Cryptography.X509Certificates;
+    public class TrustAllCertsPolicy : ICertificatePolicy {
+        public bool CheckValidationResult(
+            ServicePoint srvPoint, X509Certificate certificate,
+            WebRequest request, int certificateProblem) {
+            return true;
+        }
+    }
+"@
+[Net.ServicePointManager]::CertificatePolicy = New-Object -TypeName TrustAllCertsPolicy
+}
+#endregion PREWORK
+
+$apmRegPath               = 'HKLM:\SOFTWARE\ABCIT\APMFoglight'
+$apmServerAuthToken       = Get-ItemProperty -Path $apmRegPath | Select-Object -ExpandProperty APMServerAuthToken
+$apmServerURL             = Get-ItemProperty -Path $apmRegPath | Select-Object -ExpandProperty APMServerURL
+
+$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',100,4,"DiscoverDBOs.ps1 - Starting with APM Server query $($apmServerURL)")
+
+Function Get-DBOFromFoglightWebService {
+
+	param(
+		[ref]$outList,
+		[string]$qryItem,
+		[string]$apmServerURL,
+		[string]$apmServerAuthToken
+	)
+
+	$rtn = $false	
+		
+	$url     = $apmServerURL + '/api/v1/topology/query?showTopologyTypeLocalProperties=true'
+	$headers = @{    
+		'Auth-Token' = $apmServerAuthToken
+		'Accept'     = 'application/json'
+	}
+
+	$tmpList = New-Object -TypeName System.Collections.ArrayList
+
+	$generalProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'	
+	)
+
+	$serverProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'	
+		'aggregateAlarms'
+		'active_Host'
+	)
+
+	$tableSpaceProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'
+		'tablespace_name'	
+		'status'
+		'contents'
+		'retention'
+		'block_size'
+	)
+
+	$agentModelProps = @(
+		'uniqueId'		
+		'longName'
+		'isBlackedOut'
+		'localState'
+		'aggregateState'
+		'alarmTotalCount'
+		'alarmAggregateTotalCount'
+		'agentVersion'
+		'hostName'
+		'agentName'
+		'build'		
+		'type'
+	)
+
+	switch ($qryItem) {
+		"Servers"  {			
+			
+			$body = @{ "queryText" = "!DBO_Servers"	} | ConvertTo-Json
+			$dboServersRaw = ''
+			$dboServersRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboServersRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,4,"Query $($qryItem), returned $($dboServersRaw.data.count) objects.")
+				$dboServersRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $serverProps
+					if ($tmp) {		
+						if ($tmp.active_host.name) {
+							$ativeHost = $tmp.active_host.name
+						} else {
+							$activeHost = 'Not defined'
+						}
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{							
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  'activeHost'               = $activeHost
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				}
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,1,"Query $($qryItem), returned $($dboServersRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Servers   
+		"Database"  {			
+			
+			$body = @{ "queryText" = "!DBO_Database" } | ConvertTo-Json
+			$dboDatabaseRaw = ''
+			$dboDatabaseRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboDatabaseRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,4,"Query $($qryItem), returned $($dboDatabaseRaw.data.count) objects.")
+				$dboDatabaseRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+						}
+						if ($dbName -ne '' -and $dbname -match '[a-zA-Z]{1,}') {
+							$null = $tmpList.Add($dboObj)
+						}												
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,1,"Query $($qryItem), returned $($dboDatabaseRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Database
+		"Listener"  {			
+			
+			$body = @{ "queryText" = "!DBO_Listener_Status" } | ConvertTo-Json
+			$dboListenerStatusRaw = ''
+			$dboListenerStatusRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboListenerStatusRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,4,"Query $($qryItem), returned $($dboListenerStatusRaw.data.count) objects.")
+				$dboListenerStatusRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,1,"Query $($qryItem), returned $($dboListenerStatusRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Listener
+		"DB-System"  {			
+			
+			$body = @{ "queryText" = "!DBO_Database" } | ConvertTo-Json
+			$dboSystemRaw = ''
+			$dboSystemRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+			
+			if ($dboSystemRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,4,"Query $($qryItem), returned $($dboSystemRaw.data.count) objects.")
+				$dboSystemRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $generalProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value				
+						$uniID  =  $tmp.uniqueId -replace '-',''							  
+						if ($uniID -notMatch '-Sys') {
+							$uniID  = $uniID + '-Sys'
+						}
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $uniID
+							  [string]'longName'         = $tmp.longName + '_Long'
+							  [string]'dbName'           = $dbName							  
+						}
+						if ($dbName -ne '' -and $dbname -match '[a-zA-Z]{1,}') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,1,"Query $($qryItem), returned $($dboSystemRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end DB-System
+		"Tablespace"  {			
+			
+			$body = @{ "queryText" = "!DBO_Tablespace" } | ConvertTo-Json
+			$dboTableSpaceRaw = ''
+			$dboTableSpaceRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboTableSpaceRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,4,"Query $($qryItem), returned $($dboTableSpaceRaw.data.count) objects.")
+				$dboTableSpaceRaw.data | ForEach-Object {					
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $tableSpaceProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  [string]'tableSpaceName'   = $tmp.tablespace_Name
+							  [string]'status'           = $tmp.status
+							  [string]'contents'         = $tmp.contents
+							  [string]'retention'        = $tmp.retention
+							  'blocksize'                = $tmp.block_size			  
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				}
+
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,1,"Query $($qryItem), returned $($dboTableSpaceRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Tablespace
+		"Agent"  {			
+			
+			$body = @{ "queryText" = "!DBO_Agent_Model" } | ConvertTo-Json
+			$dboAgentModelRaw = ''
+			$dboAgentModelRaw = Invoke-RestMethod -Uri $url -Method Post -Headers $headers -Body $body -ContentType application/json
+
+			if ($dboAgentModelRaw.data.count -ge 1) {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,4,"Query $($qryItem), returned $($dboAgentModelRaw.data.count) objects.")
+				$dboAgentModelRaw.data | ForEach-Object {
+					$tmp = ''
+					$tmp = $_.properties | Select-Object -Property $agentModelProps
+					if ($tmp) {		
+						$dbName = ''
+						$dbName = [Regex]::Matches($($tmp.longName),'[a-zA-Z]{5,}[a-zA-Z]{1,}[a-zA-Z]{1,}[dbDB]{2}').Value
+						$dboObj = [PSCustomObject] @{
+							  [string]'uniqueId'         = $tmp.uniqueId -replace '-',''							  
+							  [string]'longName'         = $tmp.longName
+							  [string]'dbName'           = $dbName
+							  [string]'isBlackedOut'     = if ($tmp.isBlackedOut -eq 'false') { 'yes' } else { 'no' }
+							  'localState'               = $tmp.localState
+							  'aggregateState'           = $tmp.aggregateState
+							  'alarmTotalCount'          = $tmp.alarmTotalCount
+							  'alarmAggregateTotalCount' = $tmp.alarmAggregateTotalCount
+							  [string]'agentVersion'     = $tmp.agentVersion
+							  [string]'agentName'        = $tmp.agentName
+							  [string]'build'            = $tmp.build
+							  [string]'monitoringHost'   = $tmp.hostName
+							  [string]'type'             = $tmp.type 
+						}
+						if ($dbName -ne '') {
+							$null = $tmpList.Add($dboObj)
+						}						
+					}
+				} 
+			} else {
+				$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,1,"Query $($qryItem), returned $($dboAgentModelRaw.data.count) objects! Check query.")
+			}
+			break
+		} #end Agent
+
+	} #end switch ($qryItem)
+	
+	$outList.Value = $tmpList
+	
+	if ($tmpList.Count -gt 1) {
+		$rtn = $true
+	} else {
+		$rtn = $false
+	}
+
+	$rtn
+
+} #end Function Get-DBOFromFoglightWebService 
+
+
+Function Publish-ObjectsToSCOM {
+
+	param(
+		[string]$qryItem,
+		[System.Collections.ArrayList]$dboList
+	)
+
+	$rtn = $false
+
+	$fglClasses = @{
+		'Servers'    = 'Connect.APM.Foglight.DBO.Server'
+		'Database'   = 'Connect.APM.Foglight.DBO.Database'
+		'DB-System'  = 'Connect.APM.Foglight.DBO.DatabaseSystem'
+		'Tablespace' = 'Connect.APM.Foglight.DBO.Tablespace'
+		'Agent'      = 'Connect.APM.Foglight.DBO.Agent'
+		'Listener'   = 'Connect.APM.Foglight.DBO.Listener'
+	}
+
+	$fglClass = $fglClasses[$qryItem]
+
+	foreach ($dboItm in $dboList) {
+
+		$displayName = "$($qryItem)-$($dboItm.dbName)" + '-(Foglight)'
+
+		if($qryItem -eq 'Servers') {
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Server']$")
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Server']/uniqueId$",$dboItm.uniqueId)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Server']/activeHost$",$dboItm.activeHost)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$",$dboItm.longName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$",$dboItm.dbName)
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($instance)
+		} elseif ($qryItem -eq 'Database') {
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Database']$")
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Database']/uniqueId$",$dboItm.uniqueId)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$",$dboItm.longName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$",$dboItm.dbName)
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($instance)
+		} elseif ($qryItem -eq 'DB-System') {
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.DatabaseSystem']$")
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.DatabaseSystem']/uniqueId$",$dboItm.uniqueId)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$",$dboItm.longName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$",$dboItm.dbName)
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($instance)
+		} elseif ($qryItem -eq 'Listener') {
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Listener']$")
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Listener']/uniqueId$",$dboItm.uniqueId)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$",$dboItm.longName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$",$dboItm.dbName)
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($instance)
+		} elseif ($qryItem -eq 'Tablespace') {
+			$displayName = "$($qryItem)-$($dboItm.dbName)-$($dboItm.tableSpaceName)"
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']$")
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/uniqueId$",$dboItm.uniqueId)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$",$dboItm.longName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$",$dboItm.dbName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/tableSpaceName$",$dboItm.tableSpaceName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/status$",$dboItm.status)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/contents$",$dboItm.contents)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/retention$",$dboItm.retention)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Tablespace']/blocksize$",$dboItm.blocksize)
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($instance)
+		} elseif ($qryItem -eq 'Agent') {
+			$instance = $discoveryData.CreateClassInstance("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']$")
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/uniqueId$",$dboItm.uniqueId)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/longName$",$dboItm.longName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Base']/dbName$",$dboItm.dbName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/agentVersion$",$dboItm.agentVersion)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/agentName$",$dboItm.agentName)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/build$",$dboItm.build)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/monitoringHost$",$dboItm.monitoringHost)
+			$instance.AddProperty("$MPElement[Name='Connect.APM.Foglight.DBO.Agent']/type$",$dboItm.type)
+			$instance.AddProperty("$MPElement[Name='System!System.Entity']/DisplayName$", $displayName)
+			$discoveryData.AddInstance($instance)
+		} else {
+			$foo = 'bar'
+		}
+	} #end foreach ($dboItm in $dboList)
+
+	if($Error) {
+		$rtn = $false
+		$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',103,1,"DiscoverDBOs.ps1 - Error occured during Publish function $($Error)")
+	} else {
+		$rtn = $true
+		$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',103,4,"DiscoverDBOs.ps1 - No Error occured during Publish function.")
+	}
+
+	$rtn
+		
+} #end Function Publish-ObjectsToSCOM
+
+	
+
+$apmServerName = $apmServerURL  -replace ':[\d]{1,}',''
+$apmServerName = $apmServerName -replace '(?i)https?://',''
+
+if (Test-Connection -ComputerName $apmServerName -Count 2 -Quiet) {
+
+	$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,4,"DiscoverDBOs.ps1 - APM Server $($apmServerURL) is reachable via PING.")
+
+	$itemList = @('Servers','Database','DB-System','Tablespace','Agent','Listener')
+
+	foreach ($qryItem in $itemList) {
+
+		$dboList = New-Object -TypeName System.Collections.ArrayList
+		Get-DBOFromFoglightWebService -qryItem $qryItem -apmServerURL $apmServerURL -apmServerAuthToken $apmServerAuthToken  -outList ([ref]$dboList)
+
+		Publish-ObjectsToSCOM -qryItem $qryItem -dboList $dboList
+
+	} 
+	
+} else {
+
+	$api.LogScriptEvent('Connect.APM.Foglight - DiscoverDBOs.ps1',101,1,"DiscoverDBOs.ps1 - APM Server $($apmServerURL) is NOT reachable with PING. Stopping further processing!")
+
+}
+
+$discoveryData]]></ScriptBody>
+          <Parameters>
+            <Parameter>
+              <Name>sourceId</Name>
+              <Value>$MPElement$</Value>
+            </Parameter>
+            <Parameter>
+              <Name>managedEntityId</Name>
+              <Value>$Target/Id$</Value>
+            </Parameter>
+          </Parameters>
+          <TimeoutSeconds>120</TimeoutSeconds>
+        </DataSource>
+      </Discovery>
+    </Discoveries>
+    <Monitors>
+      <AggregateMonitor ID="Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.DatabaseSystem" ParentMonitorID="Health!System.Health.AvailabilityState" Remotable="true" Priority="Normal">
+        <Category>AvailabilityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </AggregateMonitor>
+      <UnitMonitor ID="Connect.APM.Foglight.Monitor.Connect.APM.Tablespace" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.Tablespace" ParentMonitorID="Health!System.Health.AvailabilityState" Remotable="true" Priority="Normal" TypeID="Connect.APM.Check.Test.MonitorType" ConfirmDelivery="true">
+        <Category>AvailabilityHealth</Category>
+        <OperationalStates>
+          <OperationalState ID="UnderThreshold" MonitorTypeStateID="UnderThreshold" HealthState="Success" />
+          <OperationalState ID="OverWarningThreshold" MonitorTypeStateID="OverWarningThreshold" HealthState="Warning" />
+          <OperationalState ID="OverErrorThreshold" MonitorTypeStateID="OverErrorThreshold" HealthState="Error" />
+        </OperationalStates>
+        <Configuration>
+          <IntervalSeconds>300</IntervalSeconds>
+          <SyncTime />
+          <QryItem>Tablespace</QryItem>
+          <uniqueId>$Target/Property[Type="Connect.APM.Foglight.DBO.Tablespace"]/uniqueId$</uniqueId>
+        </Configuration>
+      </UnitMonitor>
+      <UnitMonitor ID="Connect.APM.Foglight.Monitor.Connect.APM.Database" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.Database" ParentMonitorID="Health!System.Health.AvailabilityState" Remotable="true" Priority="Normal" TypeID="Connect.APM.Check.Test.MonitorType" ConfirmDelivery="true">
+        <Category>AvailabilityHealth</Category>
+        <OperationalStates>
+          <OperationalState ID="UnderThreshold" MonitorTypeStateID="UnderThreshold" HealthState="Success" />
+          <OperationalState ID="OverWarningThreshold" MonitorTypeStateID="OverWarningThreshold" HealthState="Warning" />
+          <OperationalState ID="OverErrorThreshold" MonitorTypeStateID="OverErrorThreshold" HealthState="Error" />
+        </OperationalStates>
+        <Configuration>
+          <IntervalSeconds>300</IntervalSeconds>
+          <SyncTime />
+          <QryItem>Database</QryItem>
+          <uniqueId>$Target/Property[Type="Connect.APM.Foglight.DBO.Database"]/uniqueId$</uniqueId>
+        </Configuration>
+      </UnitMonitor>
+      <UnitMonitor ID="Connect.APM.Foglight.Monitor.Connect.APM.Listener" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.Listener" ParentMonitorID="Health!System.Health.AvailabilityState" Remotable="true" Priority="Normal" TypeID="Connect.APM.Check.Test.MonitorType" ConfirmDelivery="true">
+        <Category>AvailabilityHealth</Category>
+        <OperationalStates>
+          <OperationalState ID="UnderThreshold" MonitorTypeStateID="UnderThreshold" HealthState="Success" />
+          <OperationalState ID="OverWarningThreshold" MonitorTypeStateID="OverWarningThreshold" HealthState="Warning" />
+          <OperationalState ID="OverErrorThreshold" MonitorTypeStateID="OverErrorThreshold" HealthState="Error" />
+        </OperationalStates>
+        <Configuration>
+          <IntervalSeconds>300</IntervalSeconds>
+          <SyncTime />
+          <QryItem>Listener</QryItem>
+          <uniqueId>$Target/Property[Type="Connect.APM.Foglight.DBO.Listener"]/uniqueId$</uniqueId>
+        </Configuration>
+      </UnitMonitor>
+      <UnitMonitor ID="Connect.APM.Foglight.Monitor.Connect.APM.Server" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.Server" ParentMonitorID="Health!System.Health.AvailabilityState" Remotable="true" Priority="Normal" TypeID="Connect.APM.Check.Test.MonitorType" ConfirmDelivery="true">
+        <Category>AvailabilityHealth</Category>
+        <OperationalStates>
+          <OperationalState ID="UnderThreshold" MonitorTypeStateID="UnderThreshold" HealthState="Success" />
+          <OperationalState ID="OverWarningThreshold" MonitorTypeStateID="OverWarningThreshold" HealthState="Warning" />
+          <OperationalState ID="OverErrorThreshold" MonitorTypeStateID="OverErrorThreshold" HealthState="Error" />
+        </OperationalStates>
+        <Configuration>
+          <IntervalSeconds>300</IntervalSeconds>
+          <SyncTime />
+          <QryItem>Server</QryItem>
+          <uniqueId>$Target/Property[Type="Connect.APM.Foglight.DBO.Server"]/uniqueId$</uniqueId>
+        </Configuration>
+      </UnitMonitor>
+      <UnitMonitor ID="Connect.APM.Foglight.Monitor.Connect.APM.Agent" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.Agent" ParentMonitorID="Health!System.Health.AvailabilityState" Remotable="true" Priority="Normal" TypeID="Connect.APM.Check.Test.MonitorType" ConfirmDelivery="true">
+        <Category>AvailabilityHealth</Category>
+        <OperationalStates>
+          <OperationalState ID="UnderThreshold" MonitorTypeStateID="UnderThreshold" HealthState="Success" />
+          <OperationalState ID="OverWarningThreshold" MonitorTypeStateID="OverWarningThreshold" HealthState="Warning" />
+          <OperationalState ID="OverErrorThreshold" MonitorTypeStateID="OverErrorThreshold" HealthState="Error" />
+        </OperationalStates>
+        <Configuration>
+          <IntervalSeconds>300</IntervalSeconds>
+          <SyncTime />
+          <QryItem>Agent</QryItem>
+          <uniqueId>$Target/Property[Type="Connect.APM.Foglight.DBO.Agent"]/uniqueId$</uniqueId>
+        </Configuration>
+      </UnitMonitor>
+      <DependencyMonitor ID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnDatabase" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.DatabaseSystem" ParentMonitorID="Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem" Remotable="true" Priority="Normal" RelationshipType="Connect.APM.Foglight.DatabaseSystemHostsDatabase" MemberMonitor="Health!System.Health.AvailabilityState">
+        <Category>AvailabilityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnServer" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.DatabaseSystem" ParentMonitorID="Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem" Remotable="true" Priority="Normal" RelationshipType="Connect.APM.Foglight.DatabaseSystemHostsServer" MemberMonitor="Health!System.Health.AvailabilityState">
+        <Category>AvailabilityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnListener" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.DatabaseSystem" ParentMonitorID="Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem" Remotable="true" Priority="Normal" RelationshipType="Connect.APM.Foglight.DatabaseSystemHostsListener" MemberMonitor="Health!System.Health.AvailabilityState">
+        <Category>AvailabilityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+      <DependencyMonitor ID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnAgent" Accessibility="Internal" Enabled="true" Target="Connect.APM.Foglight.DBO.DatabaseSystem" ParentMonitorID="Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem" Remotable="true" Priority="Normal" RelationshipType="Connect.APM.Foglight.DatabaseSystemHostsAgent" MemberMonitor="Health!System.Health.AvailabilityState">
+        <Category>AvailabilityHealth</Category>
+        <Algorithm>WorstOf</Algorithm>
+      </DependencyMonitor>
+    </Monitors>
+  </Monitoring>
+  <Presentation>
+    <Views>
+      <View ID="Connect.APM.Foglight.View.State.Connect.APM.Foglight.MonitoringServer" Accessibility="Internal" Target="Connect.APM.Foglight.MonitoringServer" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+      </View>
+      <View ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.DatabaseSystem" Accessibility="Internal" Target="Connect.APM.Foglight.DBO.DatabaseSystem" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120">
+            <Name>State</Name>
+            <Id>Connect.APM.Foglight.DBO.DatabaseSystem</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280">
+            <Name>uinqueId</Name>
+            <Id>Connect.APM.Foglight.DBO.DatabaseSystem/uinqueId</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420">
+            <Name>longName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/longName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>dbName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/dbName</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Server" Accessibility="Internal" Target="Connect.APM.Foglight.DBO.Server" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120">
+            <Name>State</Name>
+            <Id>Connect.APM.Foglight.DBO.Server</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280">
+            <Name>uinqueId</Name>
+            <Id>Connect.APM.Foglight.DBO.Server/uinqueId</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420">
+            <Name>longName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/longName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>dbName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/dbName</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Listener" Accessibility="Internal" Target="Connect.APM.Foglight.DBO.Listener" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120">
+            <Name>State</Name>
+            <Id>Connect.APM.Foglight.DBO.Listener</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280">
+            <Name>uinqueId</Name>
+            <Id>Connect.APM.Foglight.DBO.Listener/uinqueId</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420">
+            <Name>longName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/longName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>dbName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/dbName</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Database" Accessibility="Internal" Target="Connect.APM.Foglight.DBO.Database" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120">
+            <Name>State</Name>
+            <Id>Connect.APM.Foglight.DBO.Database</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280">
+            <Name>uinqueId</Name>
+            <Id>Connect.APM.Foglight.DBO.Database/uinqueId</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420">
+            <Name>longName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/longName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>dbName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/dbName</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Tablespace" Accessibility="Internal" Target="Connect.APM.Foglight.DBO.Tablespace" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120">
+            <Name>State</Name>
+            <Id>Connect.APM.Foglight.DBO.Tablespace</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280">
+            <Name>tableSpaceName</Name>
+            <Id>Connect.APM.Foglight.DBO.Tablespace/tableSpaceName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>contents</Name>
+            <Id>Connect.APM.Foglight.DBO.Tablespace/contents</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>blocksize</Name>
+            <Id>Connect.APM.Foglight.DBO.Tablespace/blocksize</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>retention</Name>
+            <Id>Connect.APM.Foglight.DBO.Tablespace/retention</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420">
+            <Name>longName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/longName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="6" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>dbName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/dbName</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+      <View ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Agent" Accessibility="Internal" Target="Connect.APM.Foglight.DBO.Agent" TypeID="SC!Microsoft.SystemCenter.StateViewType" Visible="true">
+        <Category>Operations</Category>
+        <Presentation>
+          <ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120">
+            <Name>State</Name>
+            <Id>Connect.APM.Foglight.DBO.Agent</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280">
+            <Name>agentName</Name>
+            <Id>Connect.APM.Foglight.DBO.Agent/agentName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>agentVersion</Name>
+            <Id>Connect.APM.Foglight.DBO.Agent/agentVersion</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220">
+            <Name>monitoringHost</Name>
+            <Id>Connect.APM.Foglight.DBO.Agent/monitoringHost</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120">
+            <Name>type</Name>
+            <Id>Connect.APM.Foglight.DBO.Agent/type</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420">
+            <Name>longName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/longName</Id>
+          </ColumnInfo>
+          <ColumnInfo Index="6" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320">
+            <Name>dbName</Name>
+            <Id>Connect.APM.Foglight.DBO.Base/dbName</Id>
+          </ColumnInfo>
+        </Presentation>
+      </View>
+    </Views>
+    <Folders>
+      <Folder ID="Connect.APM.Foglight.Folder" Accessibility="Internal" ParentFolder="SC!Microsoft.SystemCenter.Monitoring.ViewFolder.Root" />
+    </Folders>
+    <FolderItems>
+      <FolderItem ElementID="Connect.APM.Foglight.View.State.Connect.APM.Foglight.MonitoringServer" Folder="Connect.APM.Foglight.Folder" ID="Connect.APM.Foglight.View.State.Connect.APM.Foglight.MonitoringServer.FolderItem" />
+      <FolderItem ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.DatabaseSystem" Folder="Connect.APM.Foglight.Folder" ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.DatabaseSystem.FolderItem" />
+      <FolderItem ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Server" Folder="Connect.APM.Foglight.Folder" ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Server.FolderItem" />
+      <FolderItem ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Listener" Folder="Connect.APM.Foglight.Folder" ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Listener.FolderItem" />
+      <FolderItem ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Database" Folder="Connect.APM.Foglight.Folder" ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Database.FolderItem" />
+      <FolderItem ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Tablespace" Folder="Connect.APM.Foglight.Folder" ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Tablespace.FolderItem" />
+      <FolderItem ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Agent" Folder="Connect.APM.Foglight.Folder" ID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Agent.FolderItem" />
+    </FolderItems>
+    <ImageReferences>
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.DatabaseSystem" ImageID="Connect.APM.Foglight.DBO.DatabaseSystem.Icon" />
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Database" ImageID="Connect.APM.Foglight.DBO.Database.Icon" />
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Server" ImageID="Connect.APM.Foglight.DBO.Server.Icon" />
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Listener" ImageID="Connect.APM.Foglight.DBO.Listener.Icon" />
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Agent" ImageID="Connect.APM.Foglight.DBO.Agent.Icon" />
+      <ImageReference ElementID="Connect.APM.Foglight.DBO.Tablespace" ImageID="Connect.APM.Foglight.DBO.Tablespace.Icon" />
+    </ImageReferences>
+  </Presentation>
+  <LanguagePacks>
+    <LanguagePack ID="ENU" IsDefault="true">
+      <DisplayStrings>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Tablespace">
+          <Name>Monitor Connect APM Tablespace</Name>
+          <Description>Description for the new unit monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Tablespace" SubElementID="UnderThreshold">
+          <Name>UnderThreshold</Name>
+          <Description>UnderThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Tablespace" SubElementID="OverWarningThreshold">
+          <Name>OverWarningThreshold</Name>
+          <Description>OverWarningThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Tablespace" SubElementID="OverErrorThreshold">
+          <Name>OverErrorThreshold</Name>
+          <Description>OverErrorThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Database">
+          <Name>Monitor Connect APM Databases</Name>
+          <Description>Description for the new unit monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Database" SubElementID="UnderThreshold">
+          <Name>UnderThreshold</Name>
+          <Description>UnderThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Database" SubElementID="OverWarningThreshold">
+          <Name>OverWarningThreshold</Name>
+          <Description>OverWarningThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Database" SubElementID="OverErrorThreshold">
+          <Name>OverErrorThreshold</Name>
+          <Description>OverErrorThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Listener">
+          <Name>Monitor Connect APM Listener</Name>
+          <Description>Description for the new unit monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Listener" SubElementID="UnderThreshold">
+          <Name>UnderThreshold</Name>
+          <Description>UnderThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Listener" SubElementID="OverWarningThreshold">
+          <Name>OverWarningThreshold</Name>
+          <Description>OverWarningThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Listener" SubElementID="OverErrorThreshold">
+          <Name>OverErrorThreshold</Name>
+          <Description>OverErrorThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Server">
+          <Name>Monitor Connect APM Server</Name>
+          <Description>Description for the new unit monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Server" SubElementID="UnderThreshold">
+          <Name>UnderThreshold</Name>
+          <Description>UnderThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Server" SubElementID="OverWarningThreshold">
+          <Name>OverWarningThreshold</Name>
+          <Description>OverWarningThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Server" SubElementID="OverErrorThreshold">
+          <Name>OverErrorThreshold</Name>
+          <Description>OverErrorThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Agent">
+          <Name>Monitor Connect APM Agent</Name>
+          <Description>Description for the new unit monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Agent" SubElementID="UnderThreshold">
+          <Name>UnderThreshold</Name>
+          <Description>UnderThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Agent" SubElementID="OverWarningThreshold">
+          <Name>OverWarningThreshold</Name>
+          <Description>OverWarningThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Connect.APM.Agent" SubElementID="OverErrorThreshold">
+          <Name>OverErrorThreshold</Name>
+          <Description>OverErrorThreshold</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem">
+          <Name>Monigor Aggregate Database System</Name>
+          <Description>Description for new aggregate monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnDatabase">
+          <Name>Monitor DatabaseSystem depends On Database</Name>
+          <Description>Description for new dependency monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnServer">
+          <Name>Monitor DatabaseSystem depends On Server</Name>
+          <Description>Description for new dependency monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnListener">
+          <Name>Monitor DatabaseSystem depends On Listener</Name>
+          <Description>Description for new dependency monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnAgent">
+          <Name>Monitor DatabaseSystem depends On Agent</Name>
+          <Description>Description for new dependency monitor.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Folder">
+          <Name>Connect APM Foglight</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.View.State.Connect.APM.Foglight.MonitoringServer">
+          <Name>Monitoring Server</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.DatabaseSystem">
+          <Name>DatabaseSystem</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Server">
+          <Name>Server</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Listener">
+          <Name>Listener</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Database">
+          <Name>Database</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Tablespace">
+          <Name>Tablespace</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.view.State.Connect.APM.Foglight.Agent">
+          <Name>Agents</Name>
+          <Description>Description for the new view</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight">
+          <Name>Connect.APM.Foglight</Name>
+          <Description>Integrates Foglight Monitoring Information (Health state only) into SCOM.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.MonitoringServer">
+          <Name>Connect APM Foglight MonitoringServer</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.MonitoringServer" SubElementID="APMServerAuthToken">
+          <Name>APM ServerAuthToken</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.MonitoringServer" SubElementID="APMServerURL">
+          <Name>APM Server URL</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Base">
+          <Name>Connect APM Foglight Base</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Base" SubElementID="dbName">
+          <Name>dbName</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Base" SubElementID="longName">
+          <Name>longName</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.DatabaseSystem">
+          <Name>Connect APM Foglight DatabaseSystem</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.DatabaseSystem" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Database">
+          <Name>Connect APM Foglight Database</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Database" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Server">
+          <Name>Connect APM Foglight Server</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Server" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Server" SubElementID="activeHost">
+          <Name>Active Host</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Listener">
+          <Name>Connect APM Foglight Listener</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Listener" SubElementID="uniqueId">
+          <Name>unqiueId</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace">
+          <Name>Connect APM Foglight Tablespace</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="blocksize">
+          <Name>blocksize</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="contents">
+          <Name>contents</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="retention">
+          <Name>retention</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="status">
+          <Name>status</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Tablespace" SubElementID="tableSpaceName">
+          <Name>tableSpaceName</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent">
+          <Name>Connect APM Foglight Agent</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="uniqueId">
+          <Name>uniqueId</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="agentVersion">
+          <Name>agentVersion</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="build">
+          <Name>build</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="monitoringHost">
+          <Name>monitoringHost</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="type">
+          <Name>type</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DBO.Agent" SubElementID="agentName">
+          <Name>agentName</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsDatabase">
+          <Name>Connect APM Foglight DatabaseSystemHostsDatabase</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsServer">
+          <Name>Connect APM Foglight DatabaseSystemHostsServer</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsListener">
+          <Name>Connect APM Foglight DatabaseSystemHostsListener</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseSystemHostsAgent">
+          <Name>Connect APM Foglight DatabaseSystemHostsAgent</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.DatabaseHostsTablespace">
+          <Name>Connect APM Foglight DatabaseHostsTablespace</Name>
+          <Description></Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Discover.Connect.APM.MonitoringServer">
+          <Name>Discover Foglight  Monitoring Server</Name>
+          <Description>Description for the new discovery.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Discover.Connect.APM.DBObjectRelations">
+          <Name>Discover APM DB Object Relations</Name>
+          <Description>Description for the new discovery.</Description>
+        </DisplayString>
+        <DisplayString ElementID="Connect.APM.Foglight.Discover.Connect.APM.DBObjects">
+          <Name>Discover APM DB Objects</Name>
+          <Description>Description for the new discovery.</Description>
+        </DisplayString>
+      </DisplayStrings>
+      <KnowledgeArticles></KnowledgeArticles>
+    </LanguagePack>
+  </LanguagePacks>
+  <Resources>
+    <Image ID="Connect.APM.Foglight.DBO.DatabaseSystem.Icon" FileName="fogDatabaseSystem.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Database System" />
+    <Image ID="Connect.APM.Foglight.DBO.Database.Icon" FileName="fogDatabase.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Database" />
+    <Image ID="Connect.APM.Foglight.DBO.Server.Icon" FileName="fogServer.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Server " />
+    <Image ID="Connect.APM.Foglight.DBO.Listener.Icon" FileName="fogListener.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Listener" />
+    <Image ID="Connect.APM.Foglight.DBO.Agent.Icon" FileName="fogAgent.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Agent" />
+    <Image ID="Connect.APM.Foglight.DBO.Tablespace.Icon" FileName="fogTablespace.png" Accessibility="Public" HasNullStream="false" Comment="Foglight Oracle Tablespace" />
+  </Resources>
+</ManagementPack>

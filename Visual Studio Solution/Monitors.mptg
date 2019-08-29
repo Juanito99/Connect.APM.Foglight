@@ -1,0 +1,328 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instance1cb8bbbf42bb4bd8ba0ce5a2d4aaa2da" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>Connect.APM.Check.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;QryItem&gt;Tablespace&lt;/QryItem&gt;&lt;uniqueId&gt;$Target/Property[Type="Connect.APM.Foglight.DBO.Tablespace"]/uniqueId$&lt;/uniqueId&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Connect.APM.Tablespace</Id>
+        <DisplayName>Monitor Connect APM Tablespace</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.Tablespace</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>true</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance13efbe09269f41e286d82e1bedba5fe7" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>Connect.APM.Check.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;QryItem&gt;Database&lt;/QryItem&gt;&lt;uniqueId&gt;$Target/Property[Type="Connect.APM.Foglight.DBO.Database"]/uniqueId$&lt;/uniqueId&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Connect.APM.Database</Id>
+        <DisplayName>Monitor Connect APM Databases</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.Database</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>true</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceab2e8e3959854037b1ac9640caf672d2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>Connect.APM.Check.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;QryItem&gt;Listener&lt;/QryItem&gt;&lt;uniqueId&gt;$Target/Property[Type="Connect.APM.Foglight.DBO.Listener"]/uniqueId$&lt;/uniqueId&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Connect.APM.Listener</Id>
+        <DisplayName>Monitor Connect APM Listener</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.Listener</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>true</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance3f545946a01a4a57ade963d4098afd1b" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>Connect.APM.Check.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;QryItem&gt;Server&lt;/QryItem&gt;&lt;uniqueId&gt;$Target/Property[Type="Connect.APM.Foglight.DBO.Server"]/uniqueId$&lt;/uniqueId&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Connect.APM.Server</Id>
+        <DisplayName>Monitor Connect APM Server</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.Server</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>true</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instance18f210eb86d74cd7a5b91a948970b28d" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.UnitMonitor" Version="1.0.0.0">
+      <UnitMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <MonitorType>Connect.APM.Check.Test.MonitorType</MonitorType>
+        <MonitorConfig>&lt;IntervalSeconds&gt;300&lt;/IntervalSeconds&gt;&lt;SyncTime /&gt;&lt;QryItem&gt;Agent&lt;/QryItem&gt;&lt;uniqueId&gt;$Target/Property[Type="Connect.APM.Foglight.DBO.Agent"]/uniqueId$&lt;/uniqueId&gt;</MonitorConfig>
+        <MonitorOperationalStates>
+          <OperationalState>
+            <OperationalStateId>UnderThreshold</OperationalStateId>
+            <OperationalStateDisplayName>UnderThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>UnderThreshold</MonitorTypeStateId>
+            <HealthState>Success</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverWarningThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverWarningThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverWarningThreshold</MonitorTypeStateId>
+            <HealthState>Warning</HealthState>
+          </OperationalState>
+          <OperationalState>
+            <OperationalStateId>OverErrorThreshold</OperationalStateId>
+            <OperationalStateDisplayName>OverErrorThreshold</OperationalStateDisplayName>
+            <MonitorTypeStateId>OverErrorThreshold</MonitorTypeStateId>
+            <HealthState>Error</HealthState>
+          </OperationalState>
+        </MonitorOperationalStates>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Connect.APM.Agent</Id>
+        <DisplayName>Monitor Connect APM Agent</DisplayName>
+        <Description>Description for the new unit monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.Agent</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+        <ConfirmDelivery>true</ConfirmDelivery>
+      </UnitMonitorConfig>
+    </Instance>
+    <Instance ID="Instancee56d15bf5ac44d6aa30c3d14dc7e4c79" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.AggregateMonitor" Version="1.0.0.0">
+      <AggregateMonitorConfig xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Algorithm>WorstOf</Algorithm>
+        <ParentMonitor>Health!System.Health.AvailabilityState</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Ag.Connect.APM.DatabaseSystem</Id>
+        <DisplayName>Monigor Aggregate Database System</DisplayName>
+        <Description>Description for new aggregate monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.DatabaseSystem</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </AggregateMonitorConfig>
+    </Instance>
+    <Instance ID="Instancea1d7504448034aa3a7b74d6ae6e731dd" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>Health!System.Health.AvailabilityState</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>Connect.APM.Foglight.DatabaseSystemHostsDatabase</RelationshipType>
+        <ParentMonitor>Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Dep.DatabaseSystemOnDatabase</Id>
+        <DisplayName>Monitor DatabaseSystem depends On Database</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.DatabaseSystem</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceceb8dc1086af4ce9943997f26db40f95" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>Health!System.Health.AvailabilityState</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>Connect.APM.Foglight.DatabaseSystemHostsServer</RelationshipType>
+        <ParentMonitor>Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Dep.DatabaseSystemOnServer</Id>
+        <DisplayName>Monitor DatabaseSystem depends On Server</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.DatabaseSystem</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instanceabf7883dc8974ae2984f577740012aab" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>Health!System.Health.AvailabilityState</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>Connect.APM.Foglight.DatabaseSystemHostsListener</RelationshipType>
+        <ParentMonitor>Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Dep.DatabaseSystemOnListener</Id>
+        <DisplayName>Monitor DatabaseSystem depends On Listener</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.DatabaseSystem</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+    <Instance ID="Instance00ac7264f0184f958ed978d522a1dbcf" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.DependencyMonitor" Version="1.0.0.0">
+      <DependencyMonitorConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <Algorithm>
+          <Algorithm>WorstOf</Algorithm>
+        </Algorithm>
+        <MemberMonitor>Health!System.Health.AvailabilityState</MemberMonitor>
+        <MemberInMaintenance>Ignore</MemberInMaintenance>
+        <MemberUnavailable>Ignore</MemberUnavailable>
+        <RelationshipType>Connect.APM.Foglight.DatabaseSystemHostsAgent</RelationshipType>
+        <ParentMonitor>Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem</ParentMonitor>
+        <Accessibility>Internal</Accessibility>
+        <Id>Monitor.Dep.DatabaseSystemOnAgent</Id>
+        <DisplayName>Monitor DatabaseSystem depends On Agent</DisplayName>
+        <Description>Description for new dependency monitor.</Description>
+        <Target>Connect.APM.Foglight.DBO.DatabaseSystem</Target>
+        <Enabled>true</Enabled>
+        <Category>AvailabilityHealth</Category>
+        <Remotable>true</Remotable>
+        <Priority>Normal</Priority>
+        <AlertAutoResolve>true</AlertAutoResolve>
+        <AlertOnState>None</AlertOnState>
+        <AlertPriority>Normal</AlertPriority>
+        <AlertSeverity>MatchMonitorHealth</AlertSeverity>
+      </DependencyMonitorConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

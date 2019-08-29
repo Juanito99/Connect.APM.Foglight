@@ -1,0 +1,101 @@
+<TemplateGroup>
+  <Instances>
+    <Instance ID="Instanceaac2f41d1cd940b795894c063f089c83" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>Connect.APM.Foglight.Folder</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>View.State.Connect.APM.Foglight.MonitoringServer</Id>
+        <DisplayName>Monitoring Server</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>Connect.APM.Foglight.MonitoringServer</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance34e4d6c84d874e28bc6193156bd61753" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>Connect.APM.Foglight.Folder</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.DatabaseSystem&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280"&gt;&lt;Name&gt;uinqueId&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.DatabaseSystem/uinqueId&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420"&gt;&lt;Name&gt;longName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/longName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;dbName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/dbName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>view.State.Connect.APM.Foglight.DatabaseSystem</Id>
+        <DisplayName>DatabaseSystem</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>Connect.APM.Foglight.DBO.DatabaseSystem</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance8c87ea8cf5bd40279f8c4660943c3ecf" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>Connect.APM.Foglight.Folder</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Server&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280"&gt;&lt;Name&gt;uinqueId&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Server/uinqueId&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420"&gt;&lt;Name&gt;longName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/longName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;dbName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/dbName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>view.State.Connect.APM.Foglight.Server</Id>
+        <DisplayName>Server</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>Connect.APM.Foglight.DBO.Server</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance483aaabbf7954ac38bad663760907b62" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>Connect.APM.Foglight.Folder</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Listener&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280"&gt;&lt;Name&gt;uinqueId&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Listener/uinqueId&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420"&gt;&lt;Name&gt;longName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/longName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;dbName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/dbName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>view.State.Connect.APM.Foglight.Listener</Id>
+        <DisplayName>Listener</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>Connect.APM.Foglight.DBO.Listener</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instanceb911f8e5a5b84eb5affc16a9d690cc8c" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>Connect.APM.Foglight.Folder</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Database&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280"&gt;&lt;Name&gt;uinqueId&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Database/uinqueId&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420"&gt;&lt;Name&gt;longName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/longName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;dbName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/dbName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>view.State.Connect.APM.Foglight.Database</Id>
+        <DisplayName>Database</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>Connect.APM.Foglight.DBO.Database</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance77c90f6df91141159e44ce6915c189f2" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>Connect.APM.Foglight.Folder</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Tablespace&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280"&gt;&lt;Name&gt;tableSpaceName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Tablespace/tableSpaceName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;contents&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Tablespace/contents&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;blocksize&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Tablespace/blocksize&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;retention&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Tablespace/retention&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420"&gt;&lt;Name&gt;longName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/longName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="6" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;dbName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/dbName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>view.State.Connect.APM.Foglight.Tablespace</Id>
+        <DisplayName>Tablespace</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>Connect.APM.Foglight.DBO.Tablespace</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+    <Instance ID="Instance7afcc126d81a4dc3bf404134afaa6ef5" Type="Microsoft.SystemCenter.Authoring.CodeGeneration.Monitoring.CustomView" Version="1.0.0.0">
+      <CustomViewConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <ViewFolder>Connect.APM.Foglight.Folder</ViewFolder>
+        <ViewType>SC!Microsoft.SystemCenter.StateViewType</ViewType>
+        <ViewConfiguration>&lt;Presentation&gt;&lt;ColumnInfo Index="0" Grouped="false" IsSortable="true" Sorted="true" SortIndex="-1" Visible="true" SortOrder="Descending" Width="120"&gt;&lt;Name&gt;State&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Agent&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="1" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="280"&gt;&lt;Name&gt;agentName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Agent/agentName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="2" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;agentVersion&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Agent/agentVersion&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="3" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="220"&gt;&lt;Name&gt;monitoringHost&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Agent/monitoringHost&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="4" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="120"&gt;&lt;Name&gt;type&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Agent/type&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="5" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="420"&gt;&lt;Name&gt;longName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/longName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;ColumnInfo Index="6" Grouped="false" IsSortable="true" Sorted="false" SortIndex="-1" Visible="true" SortOrder="Ascending" Width="320"&gt;&lt;Name&gt;dbName&lt;/Name&gt;&lt;Id&gt;Connect.APM.Foglight.DBO.Base/dbName&lt;/Id&gt;&lt;/ColumnInfo&gt;&lt;/Presentation&gt;</ViewConfiguration>
+        <Visible>true</Visible>
+        <Accessibility>Internal</Accessibility>
+        <Id>view.State.Connect.APM.Foglight.Agent</Id>
+        <DisplayName>Agents</DisplayName>
+        <Description>Description for the new view</Description>
+        <Target>Connect.APM.Foglight.DBO.Agent</Target>
+        <Category>Operations</Category>
+      </CustomViewConfig>
+    </Instance>
+  </Instances>
+</TemplateGroup>

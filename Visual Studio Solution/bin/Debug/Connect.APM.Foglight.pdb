@@ -1,0 +1,134 @@
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.MonitoringServer*6*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Base*11*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.DatabaseSystem*16*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Database*20*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Server*24*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Listener*29*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*33*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*42*10*ClassType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsDatabase*56*10*RelationshipType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsServer*61*10*RelationshipType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsListener*66*10*RelationshipType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsAgent*71*10*RelationshipType
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseHostsTablespace*76*10*RelationshipType
+Health Model\Modules.mpx*Connect.APM.Check.Test.PropertyBag.Filtered*9*8*DataSourceModuleType
+Health Model\Modules.mpx*Connect.APM.Check.Test.PropertyBag*56*8*DataSourceModuleType
+Health Model\Modules.mpx*Connect.APM.Check.Probe*94*8*ProbeActionModuleType
+Health Model\Modules.mpx*Connect.APM.Check.Test.MonitorType*131*8*UnitMonitorType
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.DatabaseSystem.Category*3*6*Category
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Database.Category*4*6*Category
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Server.Category*5*6*Category
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Listener.Category*6*6*Category
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Agent.Category*7*6*Category
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Tablespace.Category*8*6*Category
+Service Model\Discoveries\Discoveries.mptg.mpx*Connect.APM.Foglight.Discover.Connect.APM.MonitoringServer*6*8*Discovery
+Service Model\Discoveries\Discoveries.mptg.mpx*Connect.APM.Foglight.Discover.Connect.APM.DBObjectRelations*68*8*Discovery
+Service Model\Discoveries\Discoveries.mptg.mpx*Connect.APM.Foglight.Discover.Connect.APM.DBObjects*96*8*Discovery
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem*6*8*AggregateMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Tablespace*10*8*UnitMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Database*24*8*UnitMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Listener*38*8*UnitMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Server*52*8*UnitMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Agent*66*8*UnitMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnDatabase*80*8*DependencyMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnServer*84*8*DependencyMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnListener*88*8*DependencyMonitor
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnAgent*92*8*DependencyMonitor
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.View.State.Connect.APM.Foglight.MonitoringServer*6*8*View
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.DatabaseSystem*9*8*View
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Server*30*8*View
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Listener*51*8*View
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Database*72*8*View
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Tablespace*93*8*View
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Agent*126*8*View
+Presentation\Folders.mpx*Connect.APM.Foglight.Folder*5*8*Folder
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.View.State.Connect.APM.Foglight.MonitoringServer.FolderItem*161*8*FolderItem
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.DatabaseSystem.FolderItem*162*8*FolderItem
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Server.FolderItem*163*8*FolderItem
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Listener.FolderItem*164*8*FolderItem
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Database.FolderItem*165*8*FolderItem
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Tablespace.FolderItem*166*8*FolderItem
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Agent.FolderItem*167*8*FolderItem
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.DatabaseSystem*12*8*ImageReference
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Database*13*8*ImageReference
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Server*14*8*ImageReference
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Listener*15*8*ImageReference
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Agent*16*8*ImageReference
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Tablespace*17*8*ImageReference
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Tablespace*101*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Tablespace*105*10*DisplayString*SubElementID*UnderThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Tablespace*109*10*DisplayString*SubElementID*OverWarningThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Tablespace*113*10*DisplayString*SubElementID*OverErrorThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Database*117*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Database*121*10*DisplayString*SubElementID*UnderThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Database*125*10*DisplayString*SubElementID*OverWarningThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Database*129*10*DisplayString*SubElementID*OverErrorThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Listener*133*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Listener*137*10*DisplayString*SubElementID*UnderThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Listener*141*10*DisplayString*SubElementID*OverWarningThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Listener*145*10*DisplayString*SubElementID*OverErrorThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Server*149*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Server*153*10*DisplayString*SubElementID*UnderThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Server*157*10*DisplayString*SubElementID*OverWarningThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Server*161*10*DisplayString*SubElementID*OverErrorThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Agent*165*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Agent*169*10*DisplayString*SubElementID*UnderThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Agent*173*10*DisplayString*SubElementID*OverWarningThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Connect.APM.Agent*177*10*DisplayString*SubElementID*OverErrorThreshold
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Ag.Connect.APM.DatabaseSystem*181*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnDatabase*185*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnServer*189*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnListener*193*10*DisplayString
+Monitors.mptg.mpx*Connect.APM.Foglight.Monitor.Dep.DatabaseSystemOnAgent*197*10*DisplayString
+Presentation\Folders.mpx*Connect.APM.Foglight.Folder*14*10*DisplayString
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.View.State.Connect.APM.Foglight.MonitoringServer*173*10*DisplayString
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.DatabaseSystem*177*10*DisplayString
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Server*181*10*DisplayString
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Listener*185*10*DisplayString
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Database*189*10*DisplayString
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Tablespace*193*10*DisplayString
+Presentation\Views.mptg.mpx*Connect.APM.Foglight.view.State.Connect.APM.Foglight.Agent*197*10*DisplayString
+Project.mpx*Connect.APM.Foglight*5*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.MonitoringServer*89*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.MonitoringServer*94*10*DisplayString*SubElementID*APMServerAuthToken
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.MonitoringServer*99*10*DisplayString*SubElementID*APMServerURL
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Base*104*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Base*109*10*DisplayString*SubElementID*dbName
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Base*114*10*DisplayString*SubElementID*longName
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.DatabaseSystem*119*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.DatabaseSystem*124*10*DisplayString*SubElementID*uniqueId
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Database*130*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Database*135*10*DisplayString*SubElementID*uniqueId
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Server*141*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Server*146*10*DisplayString*SubElementID*uniqueId
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Server*151*10*DisplayString*SubElementID*activeHost
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Listener*157*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Listener*162*10*DisplayString*SubElementID*uniqueId
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*169*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*174*10*DisplayString*SubElementID*uniqueId
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*179*10*DisplayString*SubElementID*blocksize
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*184*10*DisplayString*SubElementID*contents
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*189*10*DisplayString*SubElementID*retention
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*194*10*DisplayString*SubElementID*status
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Tablespace*199*10*DisplayString*SubElementID*tableSpaceName
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*205*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*210*10*DisplayString*SubElementID*uniqueId
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*215*10*DisplayString*SubElementID*agentVersion
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*220*10*DisplayString*SubElementID*build
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*225*10*DisplayString*SubElementID*monitoringHost
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*230*10*DisplayString*SubElementID*type
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DBO.Agent*235*10*DisplayString*SubElementID*agentName
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsDatabase*240*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsServer*245*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsListener*250*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseSystemHostsAgent*255*10*DisplayString
+Service Model\Classes\Definitions.mpx*Connect.APM.Foglight.DatabaseHostsTablespace*260*10*DisplayString
+Service Model\Discoveries\Discoveries.mptg.mpx*Connect.APM.Foglight.Discover.Connect.APM.MonitoringServer*129*10*DisplayString
+Service Model\Discoveries\Discoveries.mptg.mpx*Connect.APM.Foglight.Discover.Connect.APM.DBObjectRelations*133*10*DisplayString
+Service Model\Discoveries\Discoveries.mptg.mpx*Connect.APM.Foglight.Discover.Connect.APM.DBObjects*137*10*DisplayString
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.DatabaseSystem.Icon*21*6*Image
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Database.Icon*22*6*Image
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Server.Icon*23*6*Image
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Listener.Icon*24*6*Image
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Agent.Icon*25*6*Image
+Presentation\Icons.mpx*Connect.APM.Foglight.DBO.Tablespace.Icon*26*6*Image
